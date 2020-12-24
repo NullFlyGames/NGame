@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public sealed partial class NCore
+namespace NGame.NSocket.Lisenter
 {
-    public static void Initlizition()
-    { 
-    
+    class UdpLisenter
+    {
     }
 }

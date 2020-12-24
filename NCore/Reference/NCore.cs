@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NGame.NCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,9 +42,9 @@ public sealed partial class NCore
     /// <summary>
     /// 创建或从引用池中获取一个指定的引用类型对象
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <returns></returns>
-    public static T New<T>() where T : class, IReference, new()
+    /// <typeparam name="T">引用对象</typeparam>
+    /// <returns>返回实体对象</returns>
+    public static T New<T>() where T : class, IEntity, new()
     {
         return null;
     }
@@ -51,8 +52,8 @@ public sealed partial class NCore
     /// <summary>
     /// 回收引用对象
     /// </summary>
-    /// <param name="reference"></param>
-    public static void Recycle(IReference reference)
+    /// <param name="reference">回收对象</param>
+    public static void Recycle(IEntity reference)
     {
 
     }

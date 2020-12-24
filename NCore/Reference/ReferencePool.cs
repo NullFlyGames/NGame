@@ -4,15 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-internal class ReferencePool
+namespace NGame.NCore
 {
-    public T New<T>() where T : class, IReference, new()
+    internal class ReferencePool
     {
-        return null;
-    }
+        public T New<T>() where T : class, IEntity, new()
+        {
+            return null;
+        }
 
-    public void Recycle(IReference reference)
-    {
+        public void Recycle(IEntity reference)
+        {
 
+        }
     }
 }

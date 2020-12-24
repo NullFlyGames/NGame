@@ -1,0 +1,6 @@
+F:\NGame\NCore\bin\Debug\NCore.dll
+F:\NGame\NCore\bin\Debug\NCore.pdb
+F:\NGame\NCore\obj\Debug\NCore.csprojAssemblyReference.cache
+F:\NGame\NCore\obj\Debug\NCore.csproj.CoreCompileInputs.cache
+F:\NGame\NCore\obj\Debug\NCore.dll
+F:\NGame\NCore\obj\Debug\NCore.pdb

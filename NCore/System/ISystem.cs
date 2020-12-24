@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public sealed partial class NCore
+namespace NGame.NCore
 {
-    public static void Initlizition()
-    { 
-    
+    /// <summary>
+    /// 逻辑单元
+    /// </summary>
+    public interface ISystem
+    {
     }
 }
