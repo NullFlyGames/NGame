@@ -8,7 +8,6 @@ namespace NGame.NCore
 {
     public interface IContext
     {
-        void Initlizition();
         List<IEntity> GetGroup(IMatcher matcher);
     }
 }

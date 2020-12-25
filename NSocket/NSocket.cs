@@ -8,13 +8,12 @@ public sealed partial class NSocket
 {
     public static T Connect<T>(string adder, ushort port) where T : NGame.NSocket.Message.Handle, new()
     {
-        TcpSession session = NCore.New<TcpSession>();
+        TcpSession session = new TcpSession();
         if (session.Connect(adder, port) == false)
         {
-            NCore.Recycle(session);
             return null;
         }
-        T handle = NCore.New<T>();
+        T handle = new T();
         handle.Awake();
 
         return handle;

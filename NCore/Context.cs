@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace NGame.NCore
 {
-    public class Context : IContext 
+    public class Context : IContext
     {
-        private Dictionary<IMatcher, List<IEntity>> _groups;
+        private Dictionary<IMatcher, List<IEntity>> _groups = new Dictionary<IMatcher, List<IEntity>>();
+
 
         public List<IEntity> GetGroup(IMatcher matcher)
         {
@@ -18,10 +19,6 @@ namespace NGame.NCore
             }
             return group;
         }
-
-        public void Initlizition()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

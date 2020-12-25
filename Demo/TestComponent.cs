@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGame.NCore
+namespace Demo
 {
-    /// <summary>
-    /// 组件
-    /// </summary>
-    public interface IComponent
+    class TestComponent:NGame.NCore.IComponent
     {
     }
 }
