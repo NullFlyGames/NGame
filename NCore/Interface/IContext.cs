@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace NGame.NCore
 {
-    /// <summary>
-    /// 组件
-    /// </summary>
-    public interface IComponent
+    public interface IContext
     {
-        int index { get; }
+        void Initlizition();
+        List<IEntity> GetGroup(IMatcher matcher);
     }
 }

@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace NGame.NCore
 {
-    /// <summary>
-    /// 组件
-    /// </summary>
-    public interface IComponent
+    public interface IMatcher
     {
-        int index { get; }
+        List<IEntity> AllOf(params Type[] InterestComponent);
     }
 }

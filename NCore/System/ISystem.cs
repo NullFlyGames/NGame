@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NGame.NCore
+﻿namespace NGame.NCore
 {
-    /// <summary>
-    /// 逻辑单元
-    /// </summary>
-    public interface ISystem
+    public interface ISystem:System.IDisposable
     {
+        void Execute();
+        void Initialize();
+        void Filter(IEntity entity);
     }
 }

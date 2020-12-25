@@ -7,10 +7,15 @@ using System.Threading.Tasks;
 namespace NGame.NCore
 {
     /// <summary>
-    /// 组件
+    /// 适配器
+    /// <para>用于绑定组件</para>
     /// </summary>
-    public interface IComponent
+    public class Matcher : IMatcher
     {
-        int index { get; }
+
+        public List<IEntity> AllOf(params Type[] InterestComponent)
+        {
+
+        }
     }
 }
