@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    class TestMatche : NGame.NCore.IMatcher
+    class TestMatche : IMatcher
     {
+
         public bool Matche(IEntity entity)
         {
-            throw new NotImplementedException();
+            return entity.GetComponent<TestComponent>() != null;
         }
     }
 }

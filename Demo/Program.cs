@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NGame.NCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,17 @@ namespace Demo
     {
         static void Main(string[] args)
         {
+            NCore.Initlizition();
             NCore.LoadSystem<TestSystem>();
 
-            TestEntity entity = NCore.Create<TestEntity>();
+            TestEntity entity = Context.Create<TestEntity>();
             entity.AddComponent<TestComponent>();
+
+            while (true)
+            {
+                NCore.FixedUpdate();
+                System.Threading.Thread.Sleep(10);
+            }
         }
     }
 }

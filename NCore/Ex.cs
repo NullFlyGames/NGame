@@ -15,7 +15,7 @@ public static class Ex
     /// <returns></returns>
     public static T AddComponent<T>(this IEntity entity) where T : class, IComponent, new()
     {
-        return NCore.AddComponent<T>(entity);
+        return Context.AddComponent<T>(entity);
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ public static class Ex
     /// <returns></returns>
     public static T GetComponent<T>(this IEntity entity) where T : class, IComponent, new()
     {
-        return NCore.GetComponent<T>(entity);
+        return Context.GetComponent<T>(entity);
     }
 
     /// <summary>
@@ -36,12 +36,22 @@ public static class Ex
     /// <returns></returns>
     public static IComponent[] GetComponents(this IEntity entity)
     {
-        return NCore.GetComponents(entity);
+        return Context.GetComponents(entity);
     }
 
     public static void RemoveComponent<T>(this IEntity entity) where T : class, IComponent, new()
     {
-        NCore.RemoveComponent<T>(entity);
+        Context.RemoveComponent<T>(entity);
+    }
+
+    public static void Log(object o)
+    {
+        if (NCore.logEvent == null)
+        {
+            Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss:fff}] {o}");
+            return;
+        }
+        NCore.logEvent(o);
     }
    
 }

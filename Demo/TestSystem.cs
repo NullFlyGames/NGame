@@ -9,23 +9,30 @@ namespace Demo
 {
     class TestSystem : ExecuteSystem<TestMatche>
     {
-        public TestMatche Mathces => throw new NotImplementedException();
+        readonly TestMatche _matche = new TestMatche();
+        public TestMatche Mathces => _matche;
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Execute()
         {
-            var entitys = NCore.GetGroup(Mathces);
+            var entitys = Context.GetGroup(Mathces);
+            if (entitys.Count <= 0)
+            {
+                Ex.Log("not entity");
+                return; 
+            }
+            Ex.Log("Execute");
         }
 
      
 
         public void Initialize()
         {
-            throw new NotImplementedException();
+            Ex.Log("初始化系统");
         }
     }
 }

@@ -10,10 +10,17 @@ namespace NGame.NCore
     /// 逻辑系统接口
     /// </summary>
     /// <typeparam name="Mathce"></typeparam>
-    public interface ExecuteSystem<Mathce> : ISystem where Mathce : class, IMatcher
+    public interface ExecuteSystem<Mathce> : ExecuteSystem where Mathce : class, IMatcher
     {
         Mathce Mathces { get; }
-        void Execute();
+    }
 
+    /// <summary>
+    /// 逻辑系统接口
+    /// </summary>
+    /// <typeparam name="Mathce"></typeparam>
+    public interface ExecuteSystem : ISystem
+    {
+        void Execute();
     }
 }
