@@ -54,6 +54,35 @@ public sealed partial class NCore : IDisposable
         }
     }
     /// <summary>
+    /// 查找实体对象
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public static T Find<T>(int id) where T : class, IEntity, new()
+    {
+        return (T)Context.Find<T>(id);
+    }
+
+    /// <summary>
+    /// 移除实体对象
+    /// </summary>
+    /// <param name="id"></param>
+    public static void Remove(int id)
+    {
+        Context.Remove(id);
+    }
+
+    /// <summary>
+    /// 创建实体对象
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public static T Create<T>() where T : class, IEntity, new()
+    {
+        return Context.Create<T>();
+    }
+    /// <summary>
     /// 轮询系统
     /// </summary>
     public static void FixedUpdate()

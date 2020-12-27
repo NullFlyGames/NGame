@@ -47,7 +47,7 @@ namespace NGame.NCore
         /// <typeparam name="T"></typeparam>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static T Find<T>(int id) where T : class, IEntity, new()
+        internal static T Find<T>(int id) where T : class, IEntity, new()
         {
             if (_entitys.ContainsKey(id) == false) return null;
             return (T)_entitys[id];
@@ -57,7 +57,7 @@ namespace NGame.NCore
         /// 移除实体对象
         /// </summary>
         /// <param name="id"></param>
-        public static void Remove(int id)
+        internal static void Remove(int id)
         {
             if (_entitys.ContainsKey(id) == false) return;
             if (_EntityRemove != null) _EntityRemove(id);
@@ -69,7 +69,7 @@ namespace NGame.NCore
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static T Create<T>() where T : class, IEntity, new()
+        internal static T Create<T>() where T : class, IEntity, new()
         {
             T entity = new T();
             entity.id = entity.GetHashCode();

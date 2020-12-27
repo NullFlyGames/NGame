@@ -54,9 +54,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NCore\NCore.csproj">
+    <ProjectReference Include="..\NCore\NGame.NCore.csproj">
       <Project>{dfcaa0d2-817e-49f7-b54e-f5fd424c9e2a}</Project>
-      <Name>NCore</Name>
+      <Name>NGame.NCore</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

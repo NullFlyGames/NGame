@@ -1,10 +1,10 @@
 ﻿namespace NGame.NSocket.Core
 {
     using NGame.NCore;
-    public interface ISocket : IEntity
+    public interface ISocket
     {
-        string Adders { get; set; }
-        ushort Port { get; set; }
-
+        int id { get; }
+        string Adders { get; }
+        ushort Port { get; }
     }
 }

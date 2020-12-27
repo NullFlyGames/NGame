@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCore", "NCore\NCore.csproj", "{DFCAA0D2-817E-49F7-B54E-F5FD424C9E2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.NCore", "NCore\NGame.NCore.csproj", "{DFCAA0D2-817E-49F7-B54E-F5FD424C9E2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSocket", "NSocket\NSocket.csproj", "{268272EF-7E2B-4521-AC3C-6923B80CCF25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.RPC", "NSocket\NGame.RPC.csproj", "{268272EF-7E2B-4521-AC3C-6923B80CCF25}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{26635B2C-C8CC-4BEF-9AE3-0A4DC45AC6AF}"
 EndProject

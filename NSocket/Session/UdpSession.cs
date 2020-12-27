@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace NGame.NSocket.Session
 {
-    class UdpSession
+    public class UdpSession
     {
+
     }
 }

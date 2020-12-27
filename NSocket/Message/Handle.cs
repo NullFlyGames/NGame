@@ -9,12 +9,8 @@ namespace NGame.NSocket.Message
     /// <summary>
     /// 消息处理管道
     /// </summary>
-    public abstract class Handle : NCore.IEntity
+    public abstract class Handle : NCore.IComponent
     {
-        public abstract int id { get; set; }
-
-        public abstract void Awake();
-        public abstract void DisConnect();
-        public abstract void Dispose();
+        
     }
 }

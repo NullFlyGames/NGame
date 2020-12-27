@@ -14,7 +14,7 @@ namespace Demo
             NCore.Initlizition();
             NCore.LoadSystem<TestSystem>();
 
-            TestEntity entity = Context.Create<TestEntity>();
+            TestEntity entity = NCore.Create<TestEntity>();
             entity.AddComponent<TestComponent>();
 
             while (true)

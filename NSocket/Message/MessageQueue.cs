@@ -6,22 +6,8 @@ using System.Threading.Tasks;
 
 namespace NGame.NSocket.Message
 {
-    internal sealed class MessageQueue : NCore.IEntity
+    internal sealed class MessageQueue : NCore.IComponent
     {
-        private bool disposedValue;
-
-        public int id { get; set; }
-
-        public void Awake()
-        {
-        }
-
-        public void Dispose()
-        {
-        }
-
-        public void Recycle()
-        {
-        }
+        
     }
 }
