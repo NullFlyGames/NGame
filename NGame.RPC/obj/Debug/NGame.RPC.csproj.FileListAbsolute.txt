@@ -1,0 +1,9 @@
+F:\NGame\NGame.RPC\obj\Debug\NGame.RPC.csprojAssemblyReference.cache
+F:\NGame\NGame.RPC\obj\Debug\NGame.RPC.csproj.CoreCompileInputs.cache
+F:\NGame\NGame.RPC\bin\Debug\NSocket.dll
+F:\NGame\NGame.RPC\bin\Debug\NSocket.pdb
+F:\NGame\NGame.RPC\bin\Debug\Core.dll
+F:\NGame\NGame.RPC\bin\Debug\Core.pdb
+F:\NGame\NGame.RPC\obj\Debug\NGame.RPC.csproj.CopyComplete
+F:\NGame\NGame.RPC\obj\Debug\NSocket.dll
+F:\NGame\NGame.RPC\obj\Debug\NSocket.pdb

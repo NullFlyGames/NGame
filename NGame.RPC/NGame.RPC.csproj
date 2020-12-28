@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NGame.RPC</RootNamespace>
-    <AssemblyName>NSocket</AssemblyName>
+    <AssemblyName>NGame.RPC</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,12 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\ISocket.cs" />
-    <Compile Include="Lisenter\TcpLisenter.cs" />
-    <Compile Include="Lisenter\UdpLisenter.cs" />
-    <Compile Include="Lisenter\WebLisenter.cs" />
-    <Compile Include="Message\Handle.cs" />
-    <Compile Include="Message\MessageQueue.cs" />
+    <Compile Include="Interface\ISocket.cs" />
+    <Compile Include="Core\NetworkProxy.cs" />
+    <Compile Include="Core\SocketSessionManaged.cs" />
+    <Compile Include="Core\SocketAsyncEventArgsManaged.cs" />
+    <Compile Include="Lisenter\TcpServer.cs" />
+    <Compile Include="Lisenter\UdpServer.cs" />
+    <Compile Include="Lisenter\WebServer.cs" />
+    <Compile Include="Interface\Handle.cs" />
+    <Compile Include="Interface\IRPC.cs" />
+    <Compile Include="Core\MessageQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session\TcpSession.cs" />
     <Compile Include="Session\UdpSession.cs" />

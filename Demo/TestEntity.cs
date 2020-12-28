@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NGame.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    class TestEntity : NGame.NCore.IEntity
+    class TestEntity : IEntity
     {
         public int id { get; set; }
     }

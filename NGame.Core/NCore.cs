@@ -61,7 +61,7 @@ public sealed partial class NCore : IDisposable
     /// <returns></returns>
     public static T Find<T>(int id) where T : class, IEntity, new()
     {
-        return (T)Context.Find<T>(id);
+        return Context.Find<T>(id);
     }
 
     /// <summary>
@@ -87,6 +87,7 @@ public sealed partial class NCore : IDisposable
     /// </summary>
     public static void FixedUpdate()
     {
+        NGame.Core.Jobs.JobSystem.FixedUpdate();
         for (int i = _system.Count - 1; i >= 0; i--)
         {
             _system[i].Execute();

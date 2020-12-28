@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    class TestComponent:NGame.NCore.IComponent
+    class TestComponent:NGame.Core.IComponent
     {
     }
 }

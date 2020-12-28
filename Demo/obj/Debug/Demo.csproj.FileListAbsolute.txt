@@ -1,10 +1,10 @@
 F:\NGame\Demo\bin\Debug\Demo.exe.config
 F:\NGame\Demo\bin\Debug\Demo.exe
 F:\NGame\Demo\bin\Debug\Demo.pdb
-F:\NGame\Demo\bin\Debug\NCore.dll
-F:\NGame\Demo\bin\Debug\NCore.pdb
 F:\NGame\Demo\obj\Debug\Demo.csprojAssemblyReference.cache
 F:\NGame\Demo\obj\Debug\Demo.csproj.CoreCompileInputs.cache
 F:\NGame\Demo\obj\Debug\Demo.csproj.CopyComplete
 F:\NGame\Demo\obj\Debug\Demo.exe
 F:\NGame\Demo\obj\Debug\Demo.pdb
+F:\NGame\Demo\bin\Debug\Core.dll
+F:\NGame\Demo\bin\Debug\Core.pdb

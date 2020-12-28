@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.Core", "NGame.Core\NG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.RPC", "NGame.RPC\NGame.RPC.csproj", "{268272EF-7E2B-4521-AC3C-6923B80CCF25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.Sql", "NGame.Sql\NGame.Sql.csproj", "{14CE7806-C4AA-448F-A02B-5B6ADB981DD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{268272EF-7E2B-4521-AC3C-6923B80CCF25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{268272EF-7E2B-4521-AC3C-6923B80CCF25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{268272EF-7E2B-4521-AC3C-6923B80CCF25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14CE7806-C4AA-448F-A02B-5B6ADB981DD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14CE7806-C4AA-448F-A02B-5B6ADB981DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14CE7806-C4AA-448F-A02B-5B6ADB981DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14CE7806-C4AA-448F-A02B-5B6ADB981DD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
