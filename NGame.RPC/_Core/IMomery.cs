@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 namespace NGame.RPC
 {
     /// <summary>
-    /// 数据解码
+    /// 内存流
     /// </summary>
-    public interface IDecoderComparserChannel
+    public interface IMemory
     {
-        void Decoder(IChannel context, IMemory momery);
+        byte[] Buffer { get; }
+        int Offset { get; }
+        int Length { get; }
+
+        void Recycle();
     }
 }

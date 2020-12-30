@@ -47,19 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ECS\IObjectPool.cs" />
-    <Compile Include="JobSystem\Job.cs" />
-    <Compile Include="JobSystem\JobSystem.cs" />
-    <Compile Include="JobSystem\JobSystem.IJob.cs" />
-    <Compile Include="JobSystem\JobSystem.JobThread.cs" />
-    <Compile Include="JobSystem\Job`1.cs" />
+    <Compile Include="ECS\Systems.cs" />
+    <Compile Include="Event\EventSystem.cs" />
+    <Compile Include="Event\IEvent.cs" />
     <Compile Include="ECS\IComponent.cs" />
     <Compile Include="ECS\Context.cs" />
-    <Compile Include="ECS\Ex.cs" />
+    <Compile Include="Ex.cs" />
     <Compile Include="Pool\ObjectPool.cs" />
     <Compile Include="ECS\Group.cs" />
     <Compile Include="ECS\IGroup.cs" />
     <Compile Include="ECS\IMatcher.cs" />
-    <Compile Include="ECS\NCore.cs" />
+    <Compile Include="NCore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ECS\IEntity.cs" />
     <Compile Include="ECS\IExecuteSystem.cs" />

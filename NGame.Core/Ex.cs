@@ -1,4 +1,4 @@
-﻿using NGame.Core;
+﻿using NGame.ECS;
 using System;
 using System.Text;
 

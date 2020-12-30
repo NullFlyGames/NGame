@@ -8,7 +8,7 @@ namespace NGame.RPC
 {
     public class DefaultDecoderComparserChannel:IDecoderComparserChannel
     {
-        public void Decoder(IChannel context, IMemory momery)
+        public void Decoder(ISocketChannelContext context, IMemory momery)
         {
             throw new NotImplementedException();
         }

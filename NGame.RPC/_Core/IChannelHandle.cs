@@ -16,39 +16,45 @@ namespace NGame.RPC
         /// 连接成功，可以发送消息
         /// </summary>
         /// <param name="context"></param>
-        void ChannelActive(IChannel context);
+        void ChannelActive(ISocketChannelContext context);
         /// <summary>
         /// 连接断开
         /// </summary>
         /// <param name="context"></param>
-        void ChannelInactive(IChannel context);
+        void ChannelInactive(ISocketChannelContext context);
         /// <summary>
         /// 消息接收完毕
         /// </summary>
         /// <param name="context"></param>
         /// <param name="message"></param>
-        void ChannelReadComplete(IChannel context, IMemory message);
+        void ChannelReadComplete(ISocketChannelContext context, IMemory message);
         /// <summary>
         /// 异常消息
         /// </summary>
         /// <param name="context"></param>
         /// <param name="exception"></param>
-        void ExceptionCaught(IChannel context, Exception exception);
+        void ExceptionCaught(ISocketChannelContext context, Exception exception);
         /// <summary>
         /// 消息写入完毕
         /// </summary>
         /// <param name="channelHandleContext"></param>
         /// <param name="momery"></param>
-        void ChannelWriterCompleted(IChannel channelHandleContext);
+        void ChannelWriterCompleted(ISocketChannelContext channelHandleContext);
         /// <summary>
         /// 会话绑定成功
         /// </summary>
         /// <param name="context"></param>
-        void ChannelBindingCompleted(IChannel context);
+        void ChannelBindingCompleted(ISocketChannelContext context);
         /// <summary>
         /// 会话连接成功
         /// </summary>
         /// <param name="context"></param>
-        void ChannelConnectdCompleted(IChannel context);
+        void ChannelConnectdCompleted(ISocketChannelContext context);
+
+        /// <summary>
+        /// 会话连接成功
+        /// </summary>
+        /// <param name="context"></param>
+        void ChannelDisconnectdCompleted(ISocketChannelContext context);
     }
 }

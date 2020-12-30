@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGame.Core
+namespace NGame.ECS
 {
-    public class Context 
+    public class Context
     {
         private static Dictionary<IMatcher, IGroup> _groups;
         private static Action<IEntity> _entitycomponentchange;
         private static Action<int> _EntityRemove;
         private static Dictionary<int, IEntity> _entitys;
-        private static Dictionary<int, List<IComponent>> _components;
+        private static Dictionary<int, Dictionary<Type, IComponent>> _components;
         internal static void Initlizition()
         {
             _groups = new Dictionary<IMatcher, IGroup>();
             _entitys = new Dictionary<int, IEntity>();
-            _components = new Dictionary<int, List<IComponent>>();
+            _components = new Dictionary<int, Dictionary<Type, IComponent>>();
         }
 
         public static List<IEntity> GetEntities()
@@ -89,7 +89,7 @@ namespace NGame.Core
             T component = entity.GetComponent<T>();
             if (component != null) return component;
             component = new T();
-            _components.Add(entity.id, new List<IComponent>() { component });
+            _components.Add(entity.id, new Dictionary<Type, IComponent>() { { typeof(T), component } });
             if (_entitycomponentchange != null) _entitycomponentchange(entity);
             return component;
         }
@@ -102,14 +102,9 @@ namespace NGame.Core
         /// <returns></returns>
         internal static T GetComponent<T>(IEntity entity) where T : class, IComponent, new()
         {
-            IComponent[] components = entity.GetComponents();
-            if (components == null || components.Length <= 0) return null;
-            for (int i = 0; i < components.Length; i++)
-            {
-                if (components[i].GetType() != typeof(T)) continue;
-                return (T)components[i];
-            }
-            return null;
+            if (HasComponent<T>(entity) == false) return null;
+            _components[entity.id].TryGetValue(typeof(T), out IComponent component);
+            return (T)component;
         }
 
         /// <summary>
@@ -121,7 +116,20 @@ namespace NGame.Core
         {
             if (_components.ContainsKey(entity.id) == false) return null;
 
-            return _components[entity.id].ToArray();
+            return _components[entity.id].Values.ToArray();
+        }
+
+        /// <summary>
+        /// 获取实体上所有组件
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        internal static bool HasComponent<T>(IEntity entity) where T : class, IComponent, new()
+        {
+            if (_components.ContainsKey(entity.id) == false)
+                throw new NullReferenceException();
+
+            return _components[entity.id].ContainsKey(typeof(T));
         }
 
         /// <summary>
@@ -131,10 +139,9 @@ namespace NGame.Core
         /// <param name="entity"></param>
         internal static void RemoveComponent<T>(IEntity entity) where T : class, IComponent, new()
         {
-            T component = entity.GetComponent<T>();
-            if (component == null) return;
+            if (HasComponent<T>(entity) == false) return;
             if (_entitycomponentchange != null) _entitycomponentchange(entity);
-            _components[entity.id].Remove(component);
+            _components[entity.id].Remove(typeof(T));
         }
     }
 }

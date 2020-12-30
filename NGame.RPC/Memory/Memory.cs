@@ -5,9 +5,11 @@ using System.Text;
 
 namespace NGame.RPC
 {
-    public sealed class Memory : IMemory
+    public sealed class Memory : IMemory, IDisposable
     {
         static ObjectPool<Memory> MemoryPool;
+        private bool disposedValue;
+
         public byte[] Buffer { get; private set; }
         public int Offset { get; private set; }
         public int Length { get; private set; }
@@ -177,7 +179,40 @@ namespace NGame.RPC
         }
         public void Recycle()
         {
+            Offset = 0;
             MemoryPool.Push(this);
+        }
+
+        public override string ToString()
+        {
+            return UTF8Encoding.UTF8.GetString(Buffer, 0, Offset);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: 释放托管状态(托管对象)
+                }
+                Recycle();
+                disposedValue = true;
+            }
+        }
+
+        // TODO: 仅当“Dispose(bool disposing)”拥有用于释放未托管资源的代码时才替代终结器
+        ~Memory()
+        {
+            // 不要更改此代码。请将清理代码放入“Dispose(bool disposing)”方法中
+            Dispose(disposing: false);
+        }
+
+        public void Dispose()
+        {
+            // 不要更改此代码。请将清理代码放入“Dispose(bool disposing)”方法中
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }

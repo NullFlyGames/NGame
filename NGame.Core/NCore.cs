@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NGame.Core;
-using NGame.Core.Jobs;
+using NGame.ECS;
+using NGame.Event;
 
 public delegate void LogEvent(object o);
 
@@ -13,7 +10,6 @@ public delegate void LogEvent(object o);
 /// </summary>
 public sealed partial class NCore : IDisposable
 {
-    private static List<ExecuteSystem> _system;
     internal static LogEvent logEvent;
 
     public static event LogEvent LogEvents
@@ -24,7 +20,6 @@ public sealed partial class NCore : IDisposable
 
     public static void Initlizition()
     {
-        _system = new List<ExecuteSystem>();
         Context.Initlizition();
     }
 
@@ -35,10 +30,7 @@ public sealed partial class NCore : IDisposable
     /// <returns></returns>
     public static T LoadSystem<T>() where T : class, ExecuteSystem, new()
     {
-        T sys = new T();
-        sys.Initialize();
-        _system.Add(sys);
-        return sys;
+        return Systems.LoadSystem<T>();
     }
 
     /// <summary>
@@ -47,12 +39,7 @@ public sealed partial class NCore : IDisposable
     /// <typeparam name="T"></typeparam>
     public static void UnLoadSystem<T>() where T : class, ISystem, new()
     {
-        for (int i = _system.Count - 1; i >= 0; i--)
-        {
-            ISystem system = _system[i];
-            if (system == null || system.GetType() != typeof(T)) continue;
-            system.Dispose();
-        }
+        Systems.UnLoadSystem<T>();
     }
     /// <summary>
     /// 查找实体对象
@@ -86,18 +73,16 @@ public sealed partial class NCore : IDisposable
     /// <summary>
     /// 轮询系统
     /// </summary>
-    public static void FixedUpdate()
+    public static void FixedUpdate(float time)
     {
-        JobSystem.FixedUpdate();
-        for (int i = _system.Count - 1; i >= 0; i--)
-        {
-            _system[i].Execute();
-        }
+        EventSystem.FixedUpdate(time);
+        Systems.FixedUpdate(time);
+      
     }
 
     public void Dispose()
     {
-        _system.ForEach(a => a.Dispose());
-        _system.Clear();
+        Systems.Dispose();
+        EventSystem.Dispose();
     }
 }

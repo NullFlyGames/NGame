@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.Core", "NGame.Core\NG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.RPC", "NGame.RPC\NGame.RPC.csproj", "{268272EF-7E2B-4521-AC3C-6923B80CCF25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.Sql", "NGame.Sql\NGame.Sql.csproj", "{14CE7806-C4AA-448F-A02B-5B6ADB981DD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.Data", "NGame.Sql\NGame.Data.csproj", "{14CE7806-C4AA-448F-A02B-5B6ADB981DD6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dispatcher", "Dispatcher\Dispatcher.csproj", "{B6B9B1DD-D95F-4EFD-9C96-1F0F5DA47C23}"
 EndProject

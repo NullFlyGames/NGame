@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGame.RPC
+namespace NGame.Core.RPC
 {
     /// <summary>
-    /// 数据编码
+    /// RPC包头
     /// </summary>
-    public interface IEncoderComparerChannel
+    public interface IMessageHead
     {
-        void Encoder(IChannel context, IMemory momery);
+        int form { get; set; }
+        int to { get; set; }
+        int opCode { get; set; }
     }
 }

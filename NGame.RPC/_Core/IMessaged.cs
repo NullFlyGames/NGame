@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGame.RPC
+namespace NGame.Core.RPC
 {
     /// <summary>
-    /// 内存流
+    /// RPC消息结构
     /// </summary>
-    public interface IMemory
+    interface IMessaged
     {
-        byte[] Buffer { get; }
-        int Offset { get; }
-        int Length { get; }
+        IMessageHead Head { get; set; }
     }
 }

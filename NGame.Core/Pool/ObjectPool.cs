@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 
 namespace NGame.ObjectPool
 {
@@ -8,7 +8,7 @@ namespace NGame.ObjectPool
         private readonly Func<T> _onCreate;
         private readonly Action<T> _OnDestroy;
         private readonly Action<T> _OnRelease;
-        private readonly Stack<T> _stack;
+        private readonly ConcurrentStack<T> _stack;
         public Type Owner { get; } = typeof(T);
 
         public ObjectPool(Func<T> onCreate, Action<T> OnDestroy, Action<T> OnRelease)
@@ -16,7 +16,7 @@ namespace NGame.ObjectPool
             _onCreate = onCreate;
             _OnDestroy = OnDestroy;
             _OnRelease = OnRelease;
-            _stack = new Stack<T>();
+            _stack = new ConcurrentStack<T>();
         }
 
         public void Push(T o)
@@ -27,16 +27,18 @@ namespace NGame.ObjectPool
 
         public T Pop()
         {
-            if (_stack.Count <= 0) return _onCreate();
-            return _stack.Pop();
+            if (_stack.TryPop(out T result))
+            {
+                return result;
+            }
+            return _onCreate();
         }
 
         public void Clear()
         {
-            T o;
-            while ((o = _stack.Pop()) != null)
+            while (_stack.TryPop(out T result))
             {
-                _OnDestroy?.Invoke(o);
+                _OnDestroy(result);
             }
         }
     }

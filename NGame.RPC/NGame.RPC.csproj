@@ -49,21 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstsrap\AbstractBootstap.cs" />
     <Compile Include="Bootstsrap\AbstractChannelHandle.cs" />
     <Compile Include="Bootstsrap\Bootstrap.cs" />
+    <Compile Include="Bootstsrap\ServerBootstap.cs" />
     <Compile Include="Bootstsrap\SocketChannelContext.cs" />
     <Compile Include="Comparser\DefaultDecoderComparserChannel.cs" />
     <Compile Include="Comparser\DefaultEncoderComparserChannel.cs" />
-    <Compile Include="Interface\IBootstrap.cs" />
-    <Compile Include="Interface\IChannel.cs" />
-    <Compile Include="Interface\IChannelHandle.cs" />
-    <Compile Include="Interface\IDecoderComparserChannel.cs" />
-    <Compile Include="Interface\IEncoderComparerChannel.cs" />
-    <Compile Include="Interface\IMessaged.cs" />
-    <Compile Include="Interface\IMessageHead.cs" />
-    <Compile Include="Interface\IMomery.cs" />
+    <Compile Include="_Core\IBootstrap.cs" />
+    <Compile Include="_Core\IChannelHandle.cs" />
+    <Compile Include="_Core\IDecoderComparserChannel.cs" />
+    <Compile Include="_Core\IEncoderComparerChannel.cs" />
+    <Compile Include="_Core\IMessaged.cs" />
+    <Compile Include="_Core\IMessageHead.cs" />
+    <Compile Include="_Core\IMomery.cs" />
     <Compile Include="Memory\Memory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_Core\ISocketChannelContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NGame.Core\NGame.Core.csproj">

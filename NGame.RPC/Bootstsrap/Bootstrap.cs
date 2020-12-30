@@ -6,81 +6,38 @@ using System.Text;
 using System.Threading.Tasks;
 using HPSocket;
 using HPSocket.Tcp;
+using NGame.Core;
 
 namespace NGame.RPC
 {
-    public class Bootstrap : IBootstrap
+    public class Bootstrap : AbstractBootstap
     {
-        TcpServer TcpServer;
         TcpClient TcpClient;
         uint outTime;
-        Type _channelType;
+        SocketChannelContext Context;
+        public int id { get; set; }
 
-        IChannel Channel;
-        /// <summary>
-        /// 远程地址
-        /// </summary>
-        public IPEndPoint RemoteAdders { get; protected set; }
-        /// <summary>
-        /// 本地地址
-        /// </summary>
-        public IPEndPoint LocalAdders { get; protected set; }
-        /// <summary>
-        /// 消息处理管道
-        /// </summary>
-        public IChannelHandle ChannelHandle { get; protected set; }
-        /// <summary>
-        /// 数据解码组件
-        /// </summary>
-        public IDecoderComparserChannel DecoderComparser { get; protected set; }
-        /// <summary>
-        /// 数据编码组件
-        /// </summary>
-        public IEncoderComparerChannel EncoderComparer { get; protected set; }
-
-
-
-        public IBootstrap BindAsync()
-        {
-            TcpServer = new TcpServer();
-            TcpServer.Port = (ushort)LocalAdders.Port;
-            TcpServer.Address = LocalAdders.Address.ToString();
-            TcpServer.OnAccept += new ServerAcceptEventHandler(AcceptCompleted);
-            TcpServer.WorkerThreadCount = (uint)Environment.ProcessorCount * 2;
-            TcpServer.KeepAliveTime = outTime;
-            TcpServer.Start();
-            TcpServer.Wait();
-            return this;
-        }
-        HandleResult AcceptCompleted(IServer sender, IntPtr connId, IntPtr client)
-        {
-            IChannel channel = sender.GetExtra<IChannel>(connId);
-            if (channel == null)
-            {
-                channel = (IChannel)Activator.CreateInstance(_channelType);
-                sender.SetExtra(connId, channel);
-                channel.GUID = Guid.NewGuid().GetHashCode();
-                channel.SSID = connId;
-                channel.LocalAddress = LocalAdders;
-                sender.GetRemoteAddress(connId, out string ip, out ushort port);
-                channel.RemoteAddress = new IPEndPoint(IPAddress.Parse(ip), port);
-            }
-            ChannelHandle.ChannelConnectdCompleted(channel);
-            return HandleResult.Ok;
-        }
-        public IBootstrap CloseAsync()
+        public override IBootstrap CloseAsync()
         {
             if (TcpClient != null) TcpClient.Dispose();
-            if (TcpServer != null) TcpServer.Dispose();
             return this;
         }
 
-        public IBootstrap ConnectdAsync()
+        public override IBootstrap ConnectdAsync()
         {
             TcpClient = new TcpClient();
             TcpClient.Address = RemoteAdders.Address.ToString();
             TcpClient.Port = (ushort)RemoteAdders.Port;
             TcpClient.KeepAliveTime = outTime;
+
+            Context = new SocketChannelContext();
+            Context.Socket = TcpClient;
+            Context.SSID = TcpClient.ConnectionId;
+            Context.GUID = id;
+            Context.RemoteAddress = RemoteAdders;
+            Context.LocalAddress = LocalAdders;
+            Context.ChannelHandle = ChannelHandle;
+
             TcpClient.OnClose += new ClientCloseEventHandler(OnCloseCompleted);
             TcpClient.OnConnect += new ClientConnectEventHandler(OnConnectdCompleted);
             TcpClient.OnReceive += new ClientReceiveEventHandler(OnRecvieCompleted);
@@ -88,101 +45,66 @@ namespace NGame.RPC
             TcpClient.Connect();
             return this;
         }
-        HandleResult OnCloseCompleted (IClient sender, SocketOperation socketOperation, int errorCode)
-        {
-            if (Channel == null)
-            {
-                Channel = (IChannel)Activator.CreateInstance(_channelType);
-                Channel.GUID = Guid.NewGuid().GetHashCode();
-                Channel.SSID = sender.ConnectionId;
-                Channel.LocalAddress = LocalAdders;
-                Channel.RemoteAddress = RemoteAdders;
-            }
-            ChannelHandle?.ChannelActive(Channel);
-            return HandleResult.Ok;
-        }
 
-        HandleResult OnConnectdCompleted(IClient sender)
-        {
-            if (Channel == null)
-            {
-                Channel = (IChannel)Activator.CreateInstance(_channelType);
-                Channel.GUID = Guid.NewGuid().GetHashCode();
-                Channel.SSID = sender.ConnectionId;
-                Channel.LocalAddress = LocalAdders;
-                Channel.RemoteAddress = RemoteAdders;
-            }
-            ChannelHandle?.ChannelActive(Channel);
-            return HandleResult.Ok;
-        }
-        HandleResult OnRecvieCompleted(IClient sender,byte[]bytes)
-        {
-            if (Channel == null)
-            {
-                Channel = (IChannel)Activator.CreateInstance(_channelType);
-                Channel.GUID = Guid.NewGuid().GetHashCode();
-                Channel.SSID = sender.ConnectionId;
-                Channel.LocalAddress = LocalAdders;
-                Channel.RemoteAddress = RemoteAdders;
-            }
-            Memory memory = Memory.GetMemory();
-            memory.Write(bytes, 0, bytes.Length);
-            ChannelHandle?.ChannelReadComplete(Channel, memory);
-            return HandleResult.Ok;
-        }
-        HandleResult OnSendCompleted(IClient sender, byte[] bytes)
-        {
-            if (Channel == null)
-            {
-                Channel = (IChannel)Activator.CreateInstance(_channelType);
-                Channel.GUID = Guid.NewGuid().GetHashCode();
-                Channel.SSID = sender.ConnectionId;
-                Channel.LocalAddress = LocalAdders;
-                Channel.RemoteAddress = RemoteAdders;
-            }
-            ChannelHandle?.ChannelWriterCompleted(Channel);
-            return HandleResult.Ok;
-        }
-        public IBootstrap SetLocalAdders(IPEndPoint endPoint)
+        public override IBootstrap SetLocalAdders(IPEndPoint endPoint)
         {
             LocalAdders = endPoint;
             return this;
         }
 
-        public IBootstrap SetRemoteAdders(IPEndPoint endPoint)
+        public override IBootstrap SetRemoteAdders(IPEndPoint endPoint)
         {
             RemoteAdders = endPoint;
             return this;
         }
 
-        public IBootstrap SetTimeOut(uint time)
+        public override IBootstrap SetTimeOut(uint time)
         {
             outTime = time;
             return this;
         }
 
-        public IBootstrap SetChannel<T>() where T : class, IChannel, new()
-        {
-            _channelType = typeof(T);
-            return this;
-        }
-
-        public IBootstrap SetChannelHandle<T>() where T : class, IChannelHandle, new()
+        public override IBootstrap SetChannelHandle<T>()
         {
             ChannelHandle = new T();
             return this;
         }
 
-        public IBootstrap SetDecoderChannel<T>() where T : class, IDecoderComparserChannel, new()
+        public override IBootstrap SetDecoderChannel<T>()
         {
             DecoderComparser = new T();
             return this;
         }
 
-        public IBootstrap SetEncoderChannel<T>() where T : class, IEncoderComparerChannel, new()
+        public override IBootstrap SetEncoderChannel<T>()
         {
             EncoderComparer = new T();
             return this;
+        }
+
+
+        HandleResult OnCloseCompleted(IClient sender, SocketOperation socketOperation, int errorCode)
+        {
+            ChannelHandle?.ChannelInactive(Context);
+            return HandleResult.Ok;
+        }
+        HandleResult OnConnectdCompleted(IClient sender)
+        {
+            ChannelHandle?.ChannelActive(Context);
+            return HandleResult.Ok;
+        }
+        HandleResult OnRecvieCompleted(IClient sender, byte[] bytes)
+        {
+            Memory memory = Memory.GetMemory();
+            memory.Write(bytes, 0, bytes.Length);
+            ChannelHandle?.ChannelReadComplete(Context, memory);
+            return HandleResult.Ok;
+        }
+
+        HandleResult OnSendCompleted(IClient sender, byte[] bytes)
+        {
+            ChannelHandle?.ChannelWriterCompleted(Context);
+            return HandleResult.Ok;
         }
     }
 }

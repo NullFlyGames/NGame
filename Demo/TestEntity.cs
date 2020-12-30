@@ -1,4 +1,5 @@
 ﻿using NGame.Core;
+using NGame.ECS;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGame.Core
+namespace NGame.ECS
 {
     class Group : IGroup
     {

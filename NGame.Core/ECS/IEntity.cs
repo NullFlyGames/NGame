@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NGame.Core
+namespace NGame.ECS
 {
     /// <summary>
     /// 实体对象

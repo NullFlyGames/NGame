@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGame.Core.RPC
+namespace NGame.RPC
 {
     /// <summary>
-    /// RPC消息结构
+    /// 数据解码
     /// </summary>
-    interface IMessaged
+    public interface IDecoderComparserChannel
     {
-        IMessageHead Head { get; }
+        void Decoder(ISocketChannelContext context, IMemory momery);
     }
 }

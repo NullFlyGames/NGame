@@ -1,4 +1,4 @@
-﻿namespace NGame.Core
+﻿namespace NGame.ECS
 {
     public interface IMatcher
     {
