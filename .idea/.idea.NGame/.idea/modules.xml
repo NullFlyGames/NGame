@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/.idea.NGame/.idea/.idea.NGame.iml" filepath="$PROJECT_DIR$/.idea/.idea.NGame/.idea/.idea.NGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/.idea.NGame/riderModule.iml" filepath="$PROJECT_DIR$/.idea/.idea.NGame/riderModule.iml" />
+    </modules>
+  </component>
+</project>

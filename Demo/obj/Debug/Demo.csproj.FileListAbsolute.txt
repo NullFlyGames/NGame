@@ -6,5 +6,13 @@ F:\NGame\Demo\obj\Debug\Demo.csproj.CoreCompileInputs.cache
 F:\NGame\Demo\obj\Debug\Demo.csproj.CopyComplete
 F:\NGame\Demo\obj\Debug\Demo.exe
 F:\NGame\Demo\obj\Debug\Demo.pdb
-F:\NGame\Demo\bin\Debug\Core.dll
-F:\NGame\Demo\bin\Debug\Core.pdb
+F:\NGame\Demo\bin\Debug\NGame.Core.dll
+F:\NGame\Demo\bin\Debug\NGame.RPC.dll
+F:\NGame\Demo\bin\Debug\NGame.Core.pdb
+F:\NGame\Demo\bin\Debug\NGame.RPC.pdb
+F:\NGame\Demo\bin\Debug\hpsocket_cn.txt
+F:\NGame\Demo\bin\Debug\hpsocket_en.txt
+F:\NGame\Demo\bin\Debug\HPSocket4C.dll
+F:\NGame\Demo\bin\Debug\HPSocket.Net.dll
+F:\NGame\Demo\bin\Debug\HPSocket.Net.pdb
+F:\NGame\Demo\bin\Debug\HPSocket.Net.xml

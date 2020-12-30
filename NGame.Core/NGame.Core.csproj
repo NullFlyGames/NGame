@@ -8,7 +8,7 @@
     <ProjectGuid>{DFCAA0D2-817E-49F7-B54E-F5FD424C9E2A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NGame.Core</RootNamespace>
+    <RootNamespace>NGame</RootNamespace>
     <AssemblyName>NGame.Core</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -21,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;UNITY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -46,24 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ECS\IObjectPool.cs" />
     <Compile Include="JobSystem\Job.cs" />
     <Compile Include="JobSystem\JobSystem.cs" />
     <Compile Include="JobSystem\JobSystem.IJob.cs" />
     <Compile Include="JobSystem\JobSystem.JobThread.cs" />
     <Compile Include="JobSystem\Job`1.cs" />
-    <Compile Include="Memorys\Memory.cs" />
-    <Compile Include="Interface\IComponent.cs" />
-    <Compile Include="Context.cs" />
-    <Compile Include="Ex.cs" />
-    <Compile Include="ObjectPools\ObjectPool.cs" />
-    <Compile Include="Group.cs" />
-    <Compile Include="Interface\IGroup.cs" />
-    <Compile Include="Interface\IMatcher.cs" />
-    <Compile Include="NCore.cs" />
+    <Compile Include="ECS\IComponent.cs" />
+    <Compile Include="ECS\Context.cs" />
+    <Compile Include="ECS\Ex.cs" />
+    <Compile Include="Pool\ObjectPool.cs" />
+    <Compile Include="ECS\Group.cs" />
+    <Compile Include="ECS\IGroup.cs" />
+    <Compile Include="ECS\IMatcher.cs" />
+    <Compile Include="ECS\NCore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Interface\IEntity.cs" />
-    <Compile Include="Interface\ExecuteSystem.cs" />
-    <Compile Include="Interface\ISystem.cs" />
+    <Compile Include="ECS\IEntity.cs" />
+    <Compile Include="ECS\IExecuteSystem.cs" />
+    <Compile Include="ECS\ISystem.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

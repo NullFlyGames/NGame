@@ -14,7 +14,7 @@ using System.IO.Compression;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
-
+using NGame;
 namespace NGame.Sql
 {
 

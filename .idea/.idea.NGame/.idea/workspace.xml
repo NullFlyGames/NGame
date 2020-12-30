@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cb6f613c-6659-4289-8273-508a15042535" name="默认的" comment="">
+      <change afterPath="$PROJECT_DIR$/NGame.Core/RPC/SingleEventLoopGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/NGame/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/NGame/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/Demo.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/Demo.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/TestSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/TestSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/bin/Debug/Core.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/bin/Debug/Core.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/bin/Debug/Demo.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/bin/Debug/Demo.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/bin/Debug/Demo.exe.config" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/bin/Debug/Demo.exe.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/bin/Debug/Demo.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/bin/Debug/Demo.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/obj/Debug/Demo.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/obj/Debug/Demo.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/obj/Debug/Demo.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/obj/Debug/Demo.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/obj/Debug/Demo.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/obj/Debug/Demo.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/obj/Debug/Demo.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/obj/Debug/Demo.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/obj/Debug/Demo.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/obj/Debug/Demo.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/Context.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/Ex.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/Group.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/Interface/ExecuteSystem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/Interface/IComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/Interface/IEntity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/Interface/IGroup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/Interface/IMatcher.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/Interface/ISystem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/JobSystem/JobSystem.JobThread.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.Core/JobSystem/JobSystem.JobThread.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/JobSystem/JobSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.Core/JobSystem/JobSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/Memorys/Memory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/NCore.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/NGame.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.Core/NGame.Core.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/ObjectPools/ObjectPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.Core/ObjectPools/ObjectPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/bin/Debug/Core.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/bin/Debug/Core.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/obj/Debug/Core.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/obj/Debug/Core.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/obj/Debug/NGame.Core.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.Core/obj/Debug/NGame.Core.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/obj/Debug/NGame.Core.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.Core/obj/Debug/NGame.Core.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Core/obj/Debug/NGame.Core.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.Core/obj/Debug/NGame.Core.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/Core/MessageQueue.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/Core/NetworkProxy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/Core/SocketAsyncEventArgsManaged.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/Core/SocketSessionManaged.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/Interface/Handle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/Interface/IRPC.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/Interface/ISocket.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/Lisenter/TcpServer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/Lisenter/UdpServer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/Lisenter/WebServer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/NGame.RPC.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.RPC/NGame.RPC.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/Session/TcpSession.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/Session/UdpSession.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/Session/WebSession.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/bin/Debug/Core.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/bin/Debug/Core.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/bin/Debug/NSocket.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/bin/Debug/NSocket.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.RPC/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/obj/Debug/NGame.RPC.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.RPC/obj/Debug/NGame.RPC.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/obj/Debug/NGame.RPC.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.RPC/obj/Debug/NGame.RPC.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/obj/Debug/NGame.RPC.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.RPC/obj/Debug/NGame.RPC.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/obj/Debug/NSocket.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/obj/Debug/NSocket.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.RPC/obj/Debug/build.force" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.Sql/obj/Debug/NGame.Sql.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.Sql/obj/Debug/NGame.Sql.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGame.sln" beforeDir="false" afterPath="$PROJECT_DIR$/NGame.sln" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Dispatcher/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.RPC/Transport/Bootstrapping/ServerBootstrap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Dispatcher/DipatcherHandle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/Interface/IMomery.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/Interface/IEventLoopGroup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/Interface/IChannelHandleContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Demo/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/TcpSocketChannel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Demo/DipatcherHandle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/Interface/IChannelHandle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/Memory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/Abstract/AbstractChannelHandle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/ServerBootstrap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/Interface/IBootstrap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/DefaultEncoderComparserChannel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/Abstract/AbstractBootstrap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/ClientBootstrap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.RPC/Transport/Channels/ChannelHandlerAdapter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/DefaultDecoderComparserChannel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.RPC/Transport/Channels/IChannelHandlerContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NGame.Core/RPC/SingleEventLoopGroup.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/NGame.Core/RPC/Memory.cs" />
+        <option value="$PROJECT_DIR$/NGame.Core/RPC/DefaultDecoderComparserChannel.cs" />
+        <option value="$PROJECT_DIR$/NGame.Core/RPC/DefaultEncoderComparserChannel.cs" />
+        <option value="$PROJECT_DIR$/NGame.Core/RPC/TcpSocketChannel.cs" />
+        <option value="$PROJECT_DIR$/NGame.Core/RPC/Interface/IChannelHandle.cs" />
+        <option value="$PROJECT_DIR$/NGame.Core/RPC/Abstract/AbstractChannelHandle.cs" />
+        <option value="$PROJECT_DIR$/Dispatcher/DipatcherHandle.cs" />
+        <option value="$PROJECT_DIR$/NGame.Core/RPC/Interface/IChannelHandleContext.cs" />
+        <option value="$PROJECT_DIR$/Demo/DipatcherHandle.cs" />
+        <option value="$PROJECT_DIR$/NGame.Core/RPC/SingleEventLoopGroup.cs" />
+        <option value="$PROJECT_DIR$/NGame.Core/RPC/Interface/IBootstrap.cs" />
+        <option value="$PROJECT_DIR$/NGame.Core/RPC/Abstract/AbstractBootstrap.cs" />
+        <option value="$PROJECT_DIR$/NGame.Core/RPC/ServerBootstrap.cs" />
+        <option value="$PROJECT_DIR$/Dispatcher/Program.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1mL7ZvYXlHCmvT4icaixaVR5gBd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Demo" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Demo/Demo.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cb6f613c-6659-4289-8273-508a15042535" name="默认的" comment="" />
+      <created>1609261077672</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609261077672</updated>
+      <workItem from="1609261088160" duration="1780000" />
+    </task>
+    <servers />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1429" y="164" key="SettingsEditor" timestamp="1609261282763">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1429" y="164" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1609261282763" />
+    <state x="-1264" y="56" width="1143" height="959" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1609261281300">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1264" y="56" width="1143" height="959" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1609261281300" />
+  </component>
+</project>

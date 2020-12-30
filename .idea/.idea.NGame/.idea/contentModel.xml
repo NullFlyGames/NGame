@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\15849\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\15849\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_NGame.-469986762.00" t="ExcludeRecursive" />
+    <e p="F:\NGame" t="IncludeFlat">
+      <e p="Demo" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Demo.csproj" t="IncludeRecursive" />
+        <e p="DipatcherHandle.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="TestComponent.cs" t="Include" />
+        <e p="TestEntity.cs" t="Include" />
+        <e p="TestMatche.cs" t="Include" />
+        <e p="TestSystem.cs" t="Include" />
+      </e>
+      <e p="Dispatcher" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DipatcherHandle.cs" t="Include" />
+        <e p="Dispatcher.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="NGame.Core" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Data" t="Include">
+          <e p="DBHandle.cs" t="Include" />
+          <e p="DBManaged.cs" t="Include" />
+          <e p="IHandle.cs" t="Include" />
+          <e p="ITable.cs" t="Include" />
+        </e>
+        <e p="ECS" t="Include">
+          <e p="Context.cs" t="Include" />
+          <e p="Ex.cs" t="Include" />
+          <e p="Group.cs" t="Include" />
+          <e p="IComponent.cs" t="Include" />
+          <e p="IEntity.cs" t="Include" />
+          <e p="IExecuteSystem.cs" t="Include" />
+          <e p="IGroup.cs" t="Include" />
+          <e p="IMatcher.cs" t="Include" />
+          <e p="IObjectPool.cs" t="Include" />
+          <e p="ISystem.cs" t="Include" />
+          <e p="NCore.cs" t="Include" />
+        </e>
+        <e p="JobSystem" t="Include">
+          <e p="Job.cs" t="Include" />
+          <e p="Job`1.cs" t="Include" />
+          <e p="JobSystem.cs" t="Include" />
+          <e p="JobSystem.IJob.cs" t="Include" />
+          <e p="JobSystem.JobThread.cs" t="Include" />
+        </e>
+        <e p="NGame.Core.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="ObjectPools" t="Include">
+          <e p="ObjectPool.cs" t="Include" />
+        </e>
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="RPC" t="Include">
+          <e p="Abstract" t="Include">
+            <e p="AbstractBootstrap.cs" t="Include" />
+            <e p="AbstractChannelHandle.cs" t="Include" />
+          </e>
+          <e p="ClientBootstrap.cs" t="Include" />
+          <e p="DefaultDecoderComparserChannel.cs" t="Include" />
+          <e p="DefaultEncoderComparserChannel.cs" t="Include" />
+          <e p="Interface" t="Include">
+            <e p="IBootstrap.cs" t="Include" />
+            <e p="IChannel.cs" t="Include" />
+            <e p="IChannelHandle.cs" t="Include" />
+            <e p="IChannelHandleContext.cs" t="Include" />
+            <e p="ICombinedMemory.cs" t="Include" />
+            <e p="IDecoderComparserChannel.cs" t="Include" />
+            <e p="IEncoderComparerChannel.cs" t="Include" />
+            <e p="IEventLoop.cs" t="Include" />
+            <e p="IEventLoopGroup.cs" t="Include" />
+            <e p="IMessaged.cs" t="Include" />
+            <e p="IMessageHead.cs" t="Include" />
+            <e p="IMomery.cs" t="Include" />
+          </e>
+          <e p="Memory.cs" t="Include" />
+          <e p="ServerBootstrap.cs" t="Include" />
+          <e p="SingleEventLoopGroup.cs" t="Include" />
+          <e p="TcpSocketChannel.cs" t="Include" />
+        </e>
+      </e>
+      <e p="NGame.RPC" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Buffer" t="Include">
+          <e p="AbstractByteBuffer.cs" t="Include" />
+          <e p="AbstractByteBufferAllocator.cs" t="Include" />
+          <e p="AbstractDerivedByteBuffer.cs" t="Include" />
+          <e p="AbstractPooledDerivedByteBuffer.cs" t="Include" />
+          <e p="AbstractReferenceCountedByteBuffer.cs" t="Include" />
+          <e p="AbstractUnpooledSlicedByteBuffer.cs" t="Include" />
+          <e p="AdvancedLeakAwareByteBuffer.cs" t="Include" />
+          <e p="AdvancedLeakAwareCompositeByteBuffer.cs" t="Include" />
+          <e p="ByteBufferUtil.cs" t="Include" />
+          <e p="ByteOrder.cs" t="Include" />
+          <e p="CompositeByteBuffer.cs" t="Include" />
+          <e p="DefaultByteBufferHolder.cs" t="Include" />
+          <e p="EmptyByteBuffer.cs" t="Include" />
+          <e p="HeapByteBufferUtil.cs" t="Include" />
+          <e p="IByteBuffer.cs" t="Include" />
+          <e p="IByteBufferAllocator.cs" t="Include" />
+          <e p="IByteBufferAllocatorMetric.cs" t="Include" />
+          <e p="IByteBufferAllocatorMetricProvider.cs" t="Include" />
+          <e p="IByteBufferHolder.cs" t="Include" />
+          <e p="IPoolArenaMetric.cs" t="Include" />
+          <e p="IPoolChunkListMetric.cs" t="Include" />
+          <e p="IPoolChunkMetric.cs" t="Include" />
+          <e p="IPoolSubpageMetric.cs" t="Include" />
+          <e p="PoolArena.cs" t="Include" />
+          <e p="PoolChunk.cs" t="Include" />
+          <e p="PoolChunkList.cs" t="Include" />
+          <e p="PooledByteBuffer.cs" t="Include" />
+          <e p="PooledByteBufferAllocator.cs" t="Include" />
+          <e p="PooledByteBufferAllocatorMetric.cs" t="Include" />
+          <e p="PooledDuplicatedByteBuffer.cs" t="Include" />
+          <e p="PooledHeapByteBuffer.cs" t="Include" />
+          <e p="PooledSlicedByteBuffer.cs" t="Include" />
+          <e p="PooledUnsafeDirectByteBuffer.cs" t="Include" />
+          <e p="PoolSubpage.cs" t="Include" />
+          <e p="PoolThreadCache.cs" t="Include" />
+          <e p="ReadOnlyByteBufferStream.cs" t="Include" />
+          <e p="SimpleLeakAwareByteBuffer.cs" t="Include" />
+          <e p="SimpleLeakAwareCompositeByteBuffer.cs" t="Include" />
+          <e p="ThrowHelper.cs" t="Include" />
+          <e p="Unpooled.cs" t="Include" />
+          <e p="UnpooledByteBufferAllocator.cs" t="Include" />
+          <e p="UnpooledDuplicatedByteBuffer.cs" t="Include" />
+          <e p="UnpooledHeapByteBuffer.cs" t="Include" />
+          <e p="UnpooledSlicedByteBuffer.cs" t="Include" />
+          <e p="UnpooledUnsafeDirectByteBuffer.cs" t="Include" />
+          <e p="UnreleasableByteBuffer.cs" t="Include" />
+          <e p="UnsafeByteBufferUtil.cs" t="Include" />
+          <e p="WrappedByteBuffer.cs" t="Include" />
+          <e p="WrappedCompositeByteBuffer.cs" t="Include" />
+        </e>
+        <e p="Codes" t="Include">
+          <e p="Base64" t="Include">
+            <e p="Base64.cs" t="Include" />
+            <e p="Base64Decoder.cs" t="Include" />
+            <e p="Base64Dialect.cs" t="Include" />
+            <e p="Base64Encoder.cs" t="Include" />
+          </e>
+          <e p="ByteToMessageDecoder.cs" t="Include" />
+          <e p="CharSequenceValueConverter.cs" t="Include" />
+          <e p="CodecException.cs" t="Include" />
+          <e p="Compression" t="Include">
+            <e p="Adler32.cs" t="Include" />
+            <e p="CompressionException.cs" t="Include" />
+            <e p="CRC32.cs" t="Include" />
+            <e p="DecompressionException.cs" t="Include" />
+            <e p="Deflate.cs" t="Include" />
+            <e p="Deflater.cs" t="Include" />
+            <e p="GZIPException.cs" t="Include" />
+            <e p="GZIPHeader.cs" t="Include" />
+            <e p="IChecksum.cs" t="Include" />
+            <e p="InfBlocks.cs" t="Include" />
+            <e p="InfCodes.cs" t="Include" />
+            <e p="Inflate.cs" t="Include" />
+            <e p="Inflater.cs" t="Include" />
+            <e p="InfTree.cs" t="Include" />
+            <e p="JZlib.cs" t="Include" />
+            <e p="JZlibDecoder.cs" t="Include" />
+            <e p="JZlibEncoder.cs" t="Include" />
+            <e p="StaticTree.cs" t="Include" />
+            <e p="Tree.cs" t="Include" />
+            <e p="ZlibCodecFactory.cs" t="Include" />
+            <e p="ZlibDecoder.cs" t="Include" />
+            <e p="ZlibEncoder.cs" t="Include" />
+            <e p="ZlibUtil.cs" t="Include" />
+            <e p="ZlibWrapper.cs" t="Include" />
+            <e p="ZStream.cs" t="Include" />
+          </e>
+          <e p="CorruptedFrameException.cs" t="Include" />
+          <e p="DatagramPacketDecoder.cs" t="Include" />
+          <e p="DatagramPacketEncoder.cs" t="Include" />
+          <e p="DateFormatter.cs" t="Include" />
+          <e p="DecoderException.cs" t="Include" />
+          <e p="DecoderResult.cs" t="Include" />
+          <e p="DefaultHeaders.cs" t="Include" />
+          <e p="DelimiterBasedFrameDecoder.cs" t="Include" />
+          <e p="Delimiters.cs" t="Include" />
+          <e p="EncoderException.cs" t="Include" />
+          <e p="HeadersUtils.cs" t="Include" />
+          <e p="IDecoderResultProvider.cs" t="Include" />
+          <e p="IHeaders.cs" t="Include" />
+          <e p="INameValidator.cs" t="Include" />
+          <e p="IValueConverter.cs" t="Include" />
+          <e p="Json" t="Include">
+            <e p="JsonObjectDecoder.cs" t="Include" />
+          </e>
+          <e p="LengthFieldBasedFrameDecoder.cs" t="Include" />
+          <e p="LengthFieldPrepender.cs" t="Include" />
+          <e p="LineBasedFrameDecoder.cs" t="Include" />
+          <e p="MessageAggregationException.cs" t="Include" />
+          <e p="MessageAggregator.cs" t="Include" />
+          <e p="MessageToByteEncoder.cs" t="Include" />
+          <e p="MessageToMessageCodec.cs" t="Include" />
+          <e p="MessageToMessageDecoder.cs" t="Include" />
+          <e p="MessageToMessageEncoder.cs" t="Include" />
+          <e p="NullNameValidator.cs" t="Include" />
+          <e p="PrematureChannelClosureException.cs" t="Include" />
+          <e p="Protobuf" t="Include">
+            <e p="ProtobufVarint32FrameDecoder.cs" t="Include" />
+            <e p="ProtobufVarint32LengthFieldPrepender.cs" t="Include" />
+          </e>
+          <e p="ReplayingDecoder.cs" t="Include" />
+          <e p="Strings" t="Include">
+            <e p="StringDecoder.cs" t="Include" />
+            <e p="StringEncoder.cs" t="Include" />
+          </e>
+          <e p="TooLongFrameException.cs" t="Include" />
+          <e p="UnsupportedMessageTypeException.cs" t="Include" />
+        </e>
+        <e p="Common" t="Include">
+          <e p="Concurrency" t="Include">
+            <e p="AbstractEventExecutor.cs" t="Include" />
+            <e p="AbstractEventExecutorGroup.cs" t="Include" />
+            <e p="AbstractExecutorService.cs" t="Include" />
+            <e p="AbstractScheduledEventExecutor.cs" t="Include" />
+            <e p="ActionScheduledAsyncTask.cs" t="Include" />
+            <e p="ActionScheduledTask.cs" t="Include" />
+            <e p="ExecutionEnvironment.cs" t="Include" />
+            <e p="ExecutorTaskScheduler.cs" t="Include" />
+            <e p="ICallable`T.cs" t="Include" />
+            <e p="IEventExecutor.cs" t="Include" />
+            <e p="IEventExecutorGroup.cs" t="Include" />
+            <e p="IExecutor.cs" t="Include" />
+            <e p="IExecutorService.cs" t="Include" />
+            <e p="IRunnable.cs" t="Include" />
+            <e p="IScheduledExecutorService.cs" t="Include" />
+            <e p="IScheduledRunnable.cs" t="Include" />
+            <e p="IScheduledTask.cs" t="Include" />
+            <e p="RejectedExecutionException.cs" t="Include" />
+            <e p="RunnableScheduledTask.cs" t="Include" />
+            <e p="ScheduledAsyncTask.cs" t="Include" />
+            <e p="ScheduledTask.cs" t="Include" />
+            <e p="SingleThreadEventExecutor.cs" t="Include" />
+            <e p="StateActionScheduledAsyncTask.cs" t="Include" />
+            <e p="StateActionScheduledTask.cs" t="Include" />
+            <e p="StateActionWithContextScheduledAsyncTask.cs" t="Include" />
+            <e p="StateActionWithContextScheduledTask.cs" t="Include" />
+            <e p="TaskCompletionSource.cs" t="Include" />
+            <e p="XThread.cs" t="Include" />
+          </e>
+          <e p="FastThreadLocal.cs" t="Include" />
+          <e p="Internal" t="Include">
+            <e p="AbstractQueue.cs" t="Include" />
+            <e p="AppendableCharSequence.cs" t="Include" />
+            <e p="CompatibleConcurrentQueue.cs" t="Include" />
+            <e p="ConcurrentCircularArrayQueue.cs" t="Include" />
+            <e p="DefaultPlatformImplementation.cs" t="Include" />
+            <e p="EmptyArrays.cs" t="Include" />
+            <e p="IAppendable.cs" t="Include" />
+            <e p="IDeque.cs" t="Include" />
+            <e p="IPlatform.cs" t="Include" />
+            <e p="IQueue.cs" t="Include" />
+            <e p="Logging" t="Include">
+              <e p="AbstractInternalLogger.cs" t="Include" />
+              <e p="DefaultEventSource.cs" t="Include" />
+              <e p="EventSourceLogger.cs" t="Include" />
+              <e p="EventSourceLoggerProvider.cs" t="Include" />
+              <e p="FormattingTuple.cs" t="Include" />
+              <e p="GenericLogger.cs" t="Include" />
+              <e p="IInternalLogger.cs" t="Include" />
+              <e p="InternalLoggerFactory.cs" t="Include" />
+              <e p="InternalLogLevel.cs" t="Include" />
+              <e p="MessageFormatter.cs" t="Include" />
+            </e>
+            <e p="MacAddressUtil.cs" t="Include" />
+            <e p="MathUtil.cs" t="Include" />
+            <e p="MpscArrayQueue.cs" t="Include" />
+            <e p="Platform.cs" t="Include" />
+            <e p="PlatformDependent.cs" t="Include" />
+            <e p="PlatformDependent0.cs" t="Include" />
+            <e p="PlatformProvider.cs" t="Include" />
+            <e p="RefArrayAccessUtil.cs" t="Include" />
+            <e p="SpscLinkedQueue.cs" t="Include" />
+            <e p="SystemPropertyUtil.cs" t="Include" />
+          </e>
+          <e p="InternalThreadLocalMap.cs" t="Include" />
+          <e p="IReferenceCounted.cs" t="Include" />
+          <e p="IResourceLeakHint.cs" t="Include" />
+          <e p="IResourceLeakTracker.cs" t="Include" />
+          <e p="PreciseTimeSpan.cs" t="Include" />
+          <e p="ResourceLeakDetector.cs" t="Include" />
+          <e p="ThreadDeathWatcher.cs" t="Include" />
+          <e p="ThreadLocalObjectList.cs" t="Include" />
+          <e p="ThreadLocalPool.cs" t="Include" />
+          <e p="Utilities" t="Include">
+            <e p="AbstractConstant.cs" t="Include" />
+            <e p="AbstractReferenceCounted.cs" t="Include" />
+            <e p="ActionTimerTask.cs" t="Include" />
+            <e p="ArrayExtensions.cs" t="Include" />
+            <e p="AsciiString.cs" t="Include" />
+            <e p="AtomicReference.cs" t="Include" />
+            <e p="AttributeKey.cs" t="Include" />
+            <e p="BitOps.cs" t="Include" />
+            <e p="ByteProcessor.cs" t="Include" />
+            <e p="ByteProcessorUtils.cs" t="Include" />
+            <e p="CharSequenceEnumerator.cs" t="Include" />
+            <e p="CharUtil.cs" t="Include" />
+            <e p="ConstantPool.cs" t="Include" />
+            <e p="DebugExtensions.cs" t="Include" />
+            <e p="DefaultAttributeMap.cs" t="Include" />
+            <e p="HashedWheelTimer.cs" t="Include" />
+            <e p="IAttribute.cs" t="Include" />
+            <e p="IAttributeMap.cs" t="Include" />
+            <e p="ICharSequence.cs" t="Include" />
+            <e p="IConstant.cs" t="Include" />
+            <e p="IHashingStrategy.cs" t="Include" />
+            <e p="IllegalReferenceCountException.cs" t="Include" />
+            <e p="IntegerExtensions.cs" t="Include" />
+            <e p="ITimeout.cs" t="Include" />
+            <e p="ITimer.cs" t="Include" />
+            <e p="ITimerTask.cs" t="Include" />
+            <e p="MediumUtil.cs" t="Include" />
+            <e p="NetUtil.cs" t="Include" />
+            <e p="PriorityQueue.cs" t="Include" />
+            <e p="RandomExtensions.cs" t="Include" />
+            <e p="ReferenceCountUtil.cs" t="Include" />
+            <e p="ReferenceEqualityComparer.cs" t="Include" />
+            <e p="Signal.cs" t="Include" />
+            <e p="StringBuilderCharSequence.cs" t="Include" />
+            <e p="StringCharSequence.cs" t="Include" />
+            <e p="StringUtil.cs" t="Include" />
+            <e p="TaskEx.cs" t="Include" />
+            <e p="ThreadExtensions.cs" t="Include" />
+            <e p="TimeUtil.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Handlers" t="Include">
+          <e p="Flow" t="Include">
+            <e p="FlowControlHandler.cs" t="Include" />
+          </e>
+          <e p="Logging" t="Include">
+            <e p="LoggingHandler.cs" t="Include" />
+            <e p="LogLevel.cs" t="Include" />
+            <e p="LogLevelExtensions.cs" t="Include" />
+          </e>
+          <e p="Streams" t="Include">
+            <e p="ChunkedStream.cs" t="Include" />
+            <e p="ChunkedWriteHandler.cs" t="Include" />
+            <e p="IChunkedInput.cs" t="Include" />
+          </e>
+          <e p="Timeout" t="Include">
+            <e p="IdleState.cs" t="Include" />
+            <e p="IdleStateEvent.cs" t="Include" />
+            <e p="IdleStateHandler.cs" t="Include" />
+            <e p="ReadTimeoutException.cs" t="Include" />
+            <e p="ReadTimeoutHandler.cs" t="Include" />
+            <e p="TimeoutException.cs" t="Include" />
+            <e p="WriteTimeoutException.cs" t="Include" />
+            <e p="WriteTimeoutHandler.cs" t="Include" />
+          </e>
+          <e p="Tls" t="Include">
+            <e p="ClientTlsSettings.cs" t="Include" />
+            <e p="NotSslRecordException.cs" t="Include" />
+            <e p="ServerTlsSettings.cs" t="Include" />
+            <e p="ServerTlsSniSettings.cs" t="Include" />
+            <e p="SniHandler.cs" t="Include" />
+            <e p="TlsHandler.cs" t="Include" />
+            <e p="TlsHandshakeCompletionEvent.cs" t="Include" />
+            <e p="TlsSettings.cs" t="Include" />
+            <e p="TlsUtils.cs" t="Include" />
+          </e>
+        </e>
+        <e p="NGame.RPC.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Transport" t="Include">
+          <e p="Bootstrapping" t="Include">
+            <e p="AbstractBootstrap.cs" t="Include" />
+            <e p="Bootstrap.cs" t="Include" />
+            <e p="DefaultNameResolver.cs" t="Include" />
+            <e p="INameResolver.cs" t="Include" />
+            <e p="ServerBootstrap.cs" t="Include" />
+          </e>
+          <e p="Channels" t="Include">
+            <e p="AbstractChannel.cs" t="Include" />
+            <e p="AbstractChannelHandlerContext.cs" t="Include" />
+            <e p="AbstractServerChannel.cs" t="Include" />
+            <e p="ActionChannelInitializer.cs" t="Include" />
+            <e p="AdaptiveRecvByteBufAllocator.cs" t="Include" />
+            <e p="AffinitizedEventLoopGroup.cs" t="Include" />
+            <e p="AlreadyConnectedException.cs" t="Include" />
+            <e p="BatchingPendingWriteQueue.cs" t="Include" />
+            <e p="ChannelDuplexHandler.cs" t="Include" />
+            <e p="ChannelException.cs" t="Include" />
+            <e p="ChannelHandlerAdapter.cs" t="Include" />
+            <e p="ChannelInitializer.cs" t="Include" />
+            <e p="ChannelMetadata.cs" t="Include" />
+            <e p="ChannelOption.cs" t="Include" />
+            <e p="ChannelOutboundBuffer.cs" t="Include" />
+            <e p="ChannelPipelineException.cs" t="Include" />
+            <e p="ClosedChannelException.cs" t="Include" />
+            <e p="CombinedChannelDuplexHandler.cs" t="Include" />
+            <e p="ConnectException.cs" t="Include" />
+            <e p="ConnectionPendingException.cs" t="Include" />
+            <e p="ConnectTimeoutException.cs" t="Include" />
+            <e p="DefaultAddressedEnvelope.cs" t="Include" />
+            <e p="DefaultChannelConfiguration.cs" t="Include" />
+            <e p="DefaultChannelHandlerContext.cs" t="Include" />
+            <e p="DefaultChannelId.cs" t="Include" />
+            <e p="DefaultChannelPipeline.cs" t="Include" />
+            <e p="DefaultFileRegion.cs" t="Include" />
+            <e p="DefaultMaxMessagesRecvByteBufAllocator.cs" t="Include" />
+            <e p="DefaultMessageSizeEstimator.cs" t="Include" />
+            <e p="Embedded" t="Include">
+              <e p="EmbeddedChannel.cs" t="Include" />
+              <e p="EmbeddedChannelId.cs" t="Include" />
+              <e p="EmbeddedEventLoop.cs" t="Include" />
+              <e p="EmbeddedSocketAddress.cs" t="Include" />
+            </e>
+            <e p="FixedRecvByteBufAllocator.cs" t="Include" />
+            <e p="Groups" t="Include">
+              <e p="ChannelGroupException.cs" t="Include" />
+              <e p="ChannelMatchers.cs" t="Include" />
+              <e p="CombinedEnumerator.cs" t="Include" />
+              <e p="DefaultChannelGroup.cs" t="Include" />
+              <e p="DefaultChannelGroupCompletionSource.cs" t="Include" />
+              <e p="IChannelGroup.cs" t="Include" />
+              <e p="IChannelGroupTaskCompletionSource.cs" t="Include" />
+              <e p="IChannelMatcher.cs" t="Include" />
+            </e>
+            <e p="IAddressedEnvelope.cs" t="Include" />
+            <e p="IChannel.cs" t="Include" />
+            <e p="IChannelConfiguration.cs" t="Include" />
+            <e p="IChannelHandler.cs" t="Include" />
+            <e p="IChannelHandlerContext.cs" t="Include" />
+            <e p="IChannelId.cs" t="Include" />
+            <e p="IChannelPipeline.cs" t="Include" />
+            <e p="IChannelUnsafe.cs" t="Include" />
+            <e p="IEventLoop.cs" t="Include" />
+            <e p="IEventLoopGroup.cs" t="Include" />
+            <e p="IFileRegion.cs" t="Include" />
+            <e p="IMaxMessagesRecvByteBufAllocator.cs" t="Include" />
+            <e p="IMessageSizeEstimator.cs" t="Include" />
+            <e p="IMessageSizeEstimatorHandle.cs" t="Include" />
+            <e p="IRecvByteBufAllocator.cs" t="Include" />
+            <e p="IRecvByteBufAllocatorHandle.cs" t="Include" />
+            <e p="IServerChannel.cs" t="Include" />
+            <e p="Local" t="Include">
+              <e p="LocalAddress.cs" t="Include" />
+              <e p="LocalChannel.cs" t="Include" />
+              <e p="LocalChannelRegistry.cs" t="Include" />
+              <e p="LocalServerChannel.cs" t="Include" />
+            </e>
+            <e p="MultithreadEventLoopGroup.cs" t="Include" />
+            <e p="NotYetConnectedException.cs" t="Include" />
+            <e p="PendingWriteQueue.cs" t="Include" />
+            <e p="Pool" t="Include">
+              <e p="AbstractChannelPoolMap.cs" t="Include" />
+              <e p="ChannelActiveHealthChecker.cs" t="Include" />
+              <e p="CountingChannelPoolHandler.cs" t="Include" />
+              <e p="FixedChannelPool.cs" t="Include" />
+              <e p="IChannelHealthChecker.cs" t="Include" />
+              <e p="IChannelPool.cs" t="Include" />
+              <e p="IChannelPoolHandler.cs" t="Include" />
+              <e p="IChannelPoolMap.cs" t="Include" />
+              <e p="SimpleChannelPool.cs" t="Include" />
+            </e>
+            <e p="SimpleChannelInboundHandler.cs" t="Include" />
+            <e p="SingleThreadEventLoop.cs" t="Include" />
+            <e p="SkipAttribute.cs" t="Include" />
+            <e p="Sockets" t="Include">
+              <e p="AbstractSocketByteChannel.cs" t="Include" />
+              <e p="AbstractSocketChannel.cs" t="Include" />
+              <e p="AbstractSocketMessageChannel.cs" t="Include" />
+              <e p="ChannelInputShutdownEvent.cs" t="Include" />
+              <e p="DatagramPacket.cs" t="Include" />
+              <e p="DefaultDatagramChannelConfig.cs" t="Include" />
+              <e p="DefaultServerSocketChannelConfig.cs" t="Include" />
+              <e p="DefaultSocketChannelConfiguration.cs" t="Include" />
+              <e p="IDatagramChannel.cs" t="Include" />
+              <e p="IDatagramChannelConfig.cs" t="Include" />
+              <e p="IServerSocketChannel.cs" t="Include" />
+              <e p="IServerSocketChannelConfiguration.cs" t="Include" />
+              <e p="ISocketChannel.cs" t="Include" />
+              <e p="ISocketChannelConfiguration.cs" t="Include" />
+              <e p="SocketChannelAsyncOperation.cs" t="Include" />
+              <e p="SocketDatagramChannel.cs" t="Include" />
+              <e p="TcpServerSocketChannel.cs" t="Include" />
+              <e p="TcpSocketChannel.cs" t="Include" />
+            </e>
+            <e p="Util.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="NGame.sln" t="IncludeFlat" />
+      <e p="NGame.Sql" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DBHandle.cs" t="Include" />
+        <e p="DBManaged.cs" t="Include" />
+        <e p="IHandle.cs" t="Include" />
+        <e p="ITable.cs" t="Include" />
+        <e p="NGame.Sql.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

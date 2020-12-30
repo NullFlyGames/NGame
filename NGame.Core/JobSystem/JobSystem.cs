@@ -46,7 +46,7 @@ namespace NGame.Core.Jobs
             return null;
         }
 
-        public static int CreateNewThread(Action handle, float delayTime = 0, bool isLoop = false)
+        static int CreateNewThread(Action handle, float delayTime = 0, bool isLoop = false)
         {
             int id = Guid.NewGuid().GetHashCode();
             JobThread thread = new JobThread();

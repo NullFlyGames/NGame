@@ -28,7 +28,11 @@ namespace NGame.Core.Jobs
             private Action m_handle;
             private Action m_action;
 
-    
+            public void Awake()
+            {
+                Thread_Id = GetHashCode();
+                State = ThreadState.Slep;
+            }
             public void QueueUserWorkItem(Action handle, float time, bool isloop)
             {
                 m_action = handle;
@@ -46,12 +50,6 @@ namespace NGame.Core.Jobs
                 m_handle = null;
                 m_action = null;
             }
-            public void Awake()
-            {
-                Thread_Id = GetHashCode();
-                State = ThreadState.Slep;
-            }
-
 
             public void FixedUpdate()
             {

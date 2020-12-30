@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    class TestSystem : ExecuteSystem<TestMatche>
+    class TestSystem : IExecuteSystem<TestMatche>
     {
         readonly TestMatche _matche = new TestMatche();
         public TestMatche Mathces => _matche;
