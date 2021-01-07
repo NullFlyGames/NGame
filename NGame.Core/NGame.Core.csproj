@@ -36,7 +36,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,22 +45,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ECS\IObjectPool.cs" />
-    <Compile Include="ECS\Systems.cs" />
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="Component\ComponentManaged.cs" />
+    <Compile Include="Component\IComponent.cs" />
+    <Compile Include="Entity\CreateEntityEventArgs.cs" />
+    <Compile Include="Entity\EntityManaged.cs" />
+    <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="Event\AsyncEventHandle.cs" />
+    <Compile Include="Event\AsyncEventHandle`1.cs" />
     <Compile Include="Event\EventSystem.cs" />
+    <Compile Include="Event\IAsyncEvent.cs" />
+    <Compile Include="Event\IAsyncEvent`1.cs" />
     <Compile Include="Event\IEvent.cs" />
-    <Compile Include="ECS\IComponent.cs" />
-    <Compile Include="ECS\Context.cs" />
+    <Compile Include="Event\IEventArgs.cs" />
     <Compile Include="Ex.cs" />
+    <Compile Include="LitJson\IJsonWrapper.cs" />
+    <Compile Include="LitJson\JsonData.cs" />
+    <Compile Include="LitJson\JsonException.cs" />
+    <Compile Include="LitJson\JsonMapper.cs" />
+    <Compile Include="LitJson\JsonMockWrapper.cs" />
+    <Compile Include="LitJson\JsonReader.cs" />
+    <Compile Include="LitJson\JsonWriter.cs" />
+    <Compile Include="LitJson\Lexer.cs" />
+    <Compile Include="LitJson\Netstandard15Polyfill.cs" />
+    <Compile Include="LitJson\ParserToken.cs" />
+    <Compile Include="Managed\IManaged.cs" />
+    <Compile Include="Memory\IMemory.cs" />
+    <Compile Include="Memory\Memory.cs" />
     <Compile Include="Pool\ObjectPool.cs" />
-    <Compile Include="ECS\Group.cs" />
-    <Compile Include="ECS\IGroup.cs" />
-    <Compile Include="ECS\IMatcher.cs" />
     <Compile Include="NCore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ECS\IEntity.cs" />
-    <Compile Include="ECS\IExecuteSystem.cs" />
-    <Compile Include="ECS\ISystem.cs" />
+    <Compile Include="System\ExecuteSystem.cs" />
+    <Compile Include="System\SystemManaged.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

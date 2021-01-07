@@ -14,21 +14,21 @@ namespace NGame.RPC
     {
         TcpClient TcpClient;
         uint outTime;
-        SocketChannelContext Context;
-        public int id { get; set; }
+        protected SocketChannelContext Context;
+
 
         public override IBootstrap CloseAsync()
         {
             if (TcpClient != null) TcpClient.Dispose();
             return this;
         }
-
         public override IBootstrap ConnectdAsync()
         {
             TcpClient = new TcpClient();
             TcpClient.Address = RemoteAdders.Address.ToString();
             TcpClient.Port = (ushort)RemoteAdders.Port;
             TcpClient.KeepAliveTime = outTime;
+            TcpClient.SocketBufferSize = (uint)NCore.BufferSize;
 
             Context = new SocketChannelContext();
             Context.Socket = TcpClient;
@@ -44,6 +44,28 @@ namespace NGame.RPC
             TcpClient.OnSend += new ClientSendEventHandler(OnSendCompleted);
             TcpClient.Connect();
             return this;
+        }
+        HandleResult OnCloseCompleted(IClient sender, SocketOperation socketOperation, int errorCode)
+        {
+            ChannelHandle?.ChannelInactive(Context);
+            return HandleResult.Ok;
+        }
+        HandleResult OnConnectdCompleted(IClient sender)
+        {
+            ChannelHandle?.ChannelActive(Context);
+            return HandleResult.Ok;
+        }
+        HandleResult OnRecvieCompleted(IClient sender, byte[] bytes)
+        {
+            Memory memory = Memory.GetMemory();
+            memory.Write(bytes, 0, bytes.Length);
+            ChannelHandle?.ChannelReadComplete(Context, memory);
+            return HandleResult.Ok;
+        }
+        HandleResult OnSendCompleted(IClient sender, byte[] bytes)
+        {
+            ChannelHandle?.ChannelWriterCompleted(Context);
+            return HandleResult.Ok;
         }
 
         public override IBootstrap SetLocalAdders(IPEndPoint endPoint)
@@ -81,30 +103,20 @@ namespace NGame.RPC
             EncoderComparer = new T();
             return this;
         }
-
-
-        HandleResult OnCloseCompleted(IClient sender, SocketOperation socketOperation, int errorCode)
+        public override IBootstrap Flush()
         {
-            ChannelHandle?.ChannelInactive(Context);
-            return HandleResult.Ok;
+            Context.Flush();
+            return this;
         }
-        HandleResult OnConnectdCompleted(IClient sender)
+        public override IBootstrap Write(IMemory memory)
         {
-            ChannelHandle?.ChannelActive(Context);
-            return HandleResult.Ok;
+            Context.Write(memory);
+            return this;
         }
-        HandleResult OnRecvieCompleted(IClient sender, byte[] bytes)
+        public override IBootstrap WriteAndFlush(IMemory memory)
         {
-            Memory memory = Memory.GetMemory();
-            memory.Write(bytes, 0, bytes.Length);
-            ChannelHandle?.ChannelReadComplete(Context, memory);
-            return HandleResult.Ok;
-        }
-
-        HandleResult OnSendCompleted(IClient sender, byte[] bytes)
-        {
-            ChannelHandle?.ChannelWriterCompleted(Context);
-            return HandleResult.Ok;
+            Context.WriteAndFlush(memory);
+            return this;
         }
     }
 }

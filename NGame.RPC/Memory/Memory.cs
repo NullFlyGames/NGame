@@ -1,4 +1,4 @@
-﻿using NGame.ObjectPool;
+﻿using NGame.Objects;
 using System;
 using System.Text;
 
@@ -17,7 +17,7 @@ namespace NGame.RPC
         static Memory OnCreate()
         {
             Memory memory = new Memory();
-            memory.Buffer = new byte[4096];
+            memory.Buffer = new byte[NCore.BufferSize];
             memory.Offset = 0;
             memory.Length = memory.Buffer.Length;
             return memory;
@@ -28,12 +28,10 @@ namespace NGame.RPC
             memory.Offset = 0;
             memory.Length = 0;
         }
-
         static void OnRelease(Memory memory)
         {
             memory.Offset = 0;
         }
-
         public static Memory GetMemory()
         {
             if (MemoryPool == null)
@@ -182,12 +180,10 @@ namespace NGame.RPC
             Offset = 0;
             MemoryPool.Push(this);
         }
-
         public override string ToString()
         {
             return UTF8Encoding.UTF8.GetString(Buffer, 0, Offset);
         }
-
         private void Dispose(bool disposing)
         {
             if (!disposedValue)
@@ -200,14 +196,11 @@ namespace NGame.RPC
                 disposedValue = true;
             }
         }
-
-        // TODO: 仅当“Dispose(bool disposing)”拥有用于释放未托管资源的代码时才替代终结器
         ~Memory()
         {
             // 不要更改此代码。请将清理代码放入“Dispose(bool disposing)”方法中
             Dispose(disposing: false);
         }
-
         public void Dispose()
         {
             // 不要更改此代码。请将清理代码放入“Dispose(bool disposing)”方法中

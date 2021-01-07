@@ -1,88 +1,104 @@
 ﻿using System;
-using System.Collections.Generic;
-using NGame.ECS;
+using NGame.Entity;
 using NGame.Event;
+using NGame.Systems;
+using NGame.Component;
+using NGame.Managed;
+using System.Collections.Generic;
 
 public delegate void LogEvent(object o);
 
 /// <summary>
 /// 框架核心
 /// </summary>
-public sealed partial class NCore : IDisposable
+public sealed partial class NCore
 {
-    internal static LogEvent logEvent;
+    static List<IManaged> _manageds;
+    static bool isDispose = false;
 
-    public static event LogEvent LogEvents
-    {
-        add { logEvent += value; }
-        remove { logEvent -= value; }
-    }
-
+    /// <summary>
+    /// 初始化
+    /// </summary>
     public static void Initlizition()
     {
-        Context.Initlizition();
+        System.Threading.ThreadPool.SetMaxThreads(2, 2);
+        Ex.Log("初始化核心框架");
+        try
+        {
+            _manageds = new List<IManaged>();
+            LoadManaged<SystemManaged>();
+            LoadManaged<EntityManaged>();
+            LoadManaged<EventSystem>();
+            LoadManaged<ComponentManaged>();
+            Ex.Log("初始化核心框架成功！ 框架版本：" + AppSettings.version);
+        }
+        catch (Exception ex)
+        {
+            Ex.Log("初始化核心框架失败！");
+            Ex.Log(ex.Message);
+        }
     }
 
     /// <summary>
-    /// 加载逻辑系统
+    /// 加载管理器
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static T LoadSystem<T>() where T : class, ExecuteSystem, new()
+    public static T LoadManaged<T>() where T : class, IManaged, new()
     {
-        return Systems.LoadSystem<T>();
-    }
-
-    /// <summary>
-    /// 卸载逻辑系统
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public static void UnLoadSystem<T>() where T : class, ISystem, new()
-    {
-        Systems.UnLoadSystem<T>();
+        T managed = GetManaged<T>();
+        if (managed != null) return managed;
+        managed = new T();
+        managed.Initlizition();
+        _manageds.Add(managed);
+        return managed;
     }
     /// <summary>
-    /// 查找实体对象
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    public static T Find<T>(int id) where T : class, IEntity, new()
-    {
-        return Context.Find<T>(id);
-    }
-
-    /// <summary>
-    /// 移除实体对象
-    /// </summary>
-    /// <param name="id"></param>
-    public static void Remove(int id)
-    {
-        Context.Remove(id);
-    }
-
-    /// <summary>
-    /// 创建实体对象
+    /// 获取加载器
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static T Create<T>() where T : class, IEntity, new()
+    public static T GetManaged<T>() where T : class, IManaged, new()
     {
-        return Context.Create<T>();
+        for (int i = 0; i < _manageds.Count; i++)
+        {
+            if (_manageds[i].GetType() == typeof(T))
+                return (T)_manageds[i];
+        }
+        return null;
     }
+    /// <summary>
+    /// 卸载管理器
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public static void UnLoadManaged<T>() where T : class, IManaged, new()
+    {
+        T managed = GetManaged<T>();
+        if (managed == null) return;
+        _manageds.Remove(managed);
+        managed.Dispose();
+    }
+
     /// <summary>
     /// 轮询系统
     /// </summary>
     public static void FixedUpdate(float time)
     {
-        EventSystem.FixedUpdate(time);
-        Systems.FixedUpdate(time);
-      
+        if (isDispose) return;
+        for (int i = _manageds.Count - 1; i >= 0; i--)
+        {
+            _manageds[i].Update(time);
+        }
     }
-
-    public void Dispose()
+    /// <summary>
+    /// 释放
+    /// </summary>
+    public static void Dispose()
     {
-        Systems.Dispose();
-        EventSystem.Dispose();
+        if (isDispose) return;
+        isDispose = true;
+
+        _manageds.ForEach(a => a.Dispose());
+        _manageds.Clear();
     }
 }

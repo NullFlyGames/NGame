@@ -1,4 +1,5 @@
-﻿using NGame.ECS;
+﻿using NGame.Component;
+using NGame.Entity;
 using System;
 using System.Text;
 
@@ -12,7 +13,7 @@ public static class Ex
     /// <returns></returns>
     public static T AddComponent<T>(this IEntity entity) where T : class, IComponent, new()
     {
-        return Context.AddComponent<T>(entity);
+        return NCore.GetManaged<ComponentManaged>().AddComponent<T>(entity.id);
     }
 
     /// <summary>
@@ -23,7 +24,7 @@ public static class Ex
     /// <returns></returns>
     public static T GetComponent<T>(this IEntity entity) where T : class, IComponent, new()
     {
-        return Context.GetComponent<T>(entity);
+        return NCore.GetManaged<ComponentManaged>().GetComponent<T>(entity.id);
     }
 
     /// <summary>
@@ -33,22 +34,29 @@ public static class Ex
     /// <returns></returns>
     public static IComponent[] GetComponents(this IEntity entity)
     {
-        return Context.GetComponents(entity);
+        return NCore.GetManaged<ComponentManaged>().GetComponents(entity.id);
     }
 
+    /// <summary>
+    /// 移除组件
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="entity"></param>
     public static void RemoveComponent<T>(this IEntity entity) where T : class, IComponent, new()
     {
-        Context.RemoveComponent<T>(entity);
+        NCore.GetManaged<ComponentManaged>().RemoveComponent<T>(entity.id);
     }
 
     public static void Log(object o)
     {
-        if (NCore.logEvent == null)
+        Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss:fff}] {o}");
+        return;
+        if (AppSettings.LogEvent == null)
         {
-            Console.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss:fff}] {o}");
+ 
             return;
         }
-        NCore.logEvent(o);
+        AppSettings.LogEvent(o);
     }
     public static string ToHex(this byte[] msg)
     {

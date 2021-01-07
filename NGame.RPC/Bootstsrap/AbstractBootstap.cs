@@ -9,7 +9,10 @@ namespace NGame.RPC
 {
     public abstract class AbstractBootstap : IBootstrap
     {
-
+        /// <summary>
+        /// 远程地址
+        /// </summary>
+        public int id { get;  set; }
         /// <summary>
         /// 远程地址
         /// </summary>
@@ -39,5 +42,11 @@ namespace NGame.RPC
         public virtual IBootstrap SetChannelHandle<T>() where T : class, IChannelHandle, new() => this;
         public virtual IBootstrap SetDecoderChannel<T>() where T : class, IDecoderComparserChannel, new() => this;
         public virtual IBootstrap SetEncoderChannel<T>() where T : class, IEncoderComparerChannel, new() => this;
+        public virtual IBootstrap Write(IMemory memory) => this;
+        public virtual IBootstrap Flush() => this;
+        public virtual IBootstrap WriteAndFlush(IMemory memory) => this;
+        public virtual IBootstrap Write(IntPtr ssid, IMemory memory) => this;
+        public virtual IBootstrap Flush(IntPtr ssid) => this;
+        public virtual IBootstrap WriteAndFlush(IntPtr ssid, IMemory memory) => this;
     }
 }

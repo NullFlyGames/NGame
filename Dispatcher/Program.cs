@@ -1,39 +1,56 @@
 ﻿using System;
 using System.Net;
 using System.Threading.Tasks;
-using NGame.RPC;
+using NGame;
+using NGame.NRPC;
 
 namespace Dispatcher
 {
 
-    public class DispatcherHandle : AbstractChannelHandle
+    public class DispatcherHandle : AbstractHandleChannel
     {
-        public override void ChannelConnectdCompleted(ISocketChannelContext context)
+        public override void OnConnectHandle(ISocketChannelContext context)
         {
-            Ex.Log($"有新连接进入：{context.RemoteAddress.ToString()} {context.SSID} {context.GUID}");
+            Ex.Log($"连接进入：{context.id}  {context.Adders.ToString()}");
         }
-        public override async void ChannelReadComplete(ISocketChannelContext context, IMemory message)
+        public override void OnRecvieCompletedHandle(ISocketChannelContext context, IMemory memory)
         {
-            Ex.Log($"收到数据：{context.RemoteAddress.ToString()} {context.SSID}  {message.ToString()}");
-            await Task.Delay(10);
-            Memory memory = Memory.GetMemory();
-            memory.Write("我这里是服务器");
-            context.WriteAndFlush(memory);
-            message.Recycle();
+            Ex.Log($"收到数据：{context.Adders.ToString()} {memory.ToString()} offset:{memory.Offset}");
+            context.WriteAndFlush(memory.Clone());
+        }
+        public override void OnDisconnectdHandle(ISocketChannelContext context)
+        {
+            Ex.Log($"连接断开：{context.id}  {context.Adders.ToString()}");
+        }
+        public override void OnSendCompletedHandle(ISocketChannelContext context, IMemory memory)
+        {
+            Ex.Log($"发送完成：{context.id}  {context.Adders.ToString()} length:{memory.Offset}");
         }
     }
     class Program
     {
+
+        static float times = 0;
+        static ServerBootstrap bootstrap;
         static void Main(string[] args)
         {
             Console.Title = "分发器";
-            ServerBootstap bootstap = new ServerBootstap();
-            bootstap.SetTimeOut(10000);
-            bootstap.SetChannelHandle<DispatcherHandle>();
-            bootstap.SetDecoderChannel<DefaultDecoderComparserChannel>();
-            bootstap.SetEncoderChannel<DefaultEncoderComparserChannel>();
-            bootstap.SetLocalAdders(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8080));
-            bootstap.BindAsync();
+            NCore.Initlizition();
+            Star();
+            while (true)
+            {
+                NCore.FixedUpdate(times);
+                System.Threading.Thread.Sleep(10);
+                times += 0.001f;
+            }
+        }
+
+        static async void Star()
+        {
+            bootstrap = new ServerBootstrap();
+            bootstrap.SetChannel(new DispatcherHandle());
+            ISocketChannelContext channel = await bootstrap.DoBindAsync<ISocketChannelContext>(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8080));
+
         }
     }
 }

@@ -3,32 +3,92 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using NGame.Managed;
 namespace NGame.Event
 {
-    public sealed class EventSystem
+    public sealed class EventSystem : IManaged
     {
         public static IEvent CurEvent { get; private set; }
-        private static Queue<IEvent> Events = new Queue<IEvent>();
+        private float curTime;
+        private static Dictionary<string, IEvent> _events;
+        private static Dictionary<int, IEventAsync> _async;
 
-        public static void Broadcast(IEvent eve)
+        public void Broadcast(IEventArgs args)
         {
-            Events.Enqueue(eve);
+            if (_events.ContainsKey(args.name))
+            {
+                _events[args.name](args);
+            }
         }
 
-        internal static void FixedUpdate(float time)
+        public void SetAsyncEventResult(int id, object o)
         {
-            if (Events.Count <= 0) return;
-
-            if (CurEvent == null) CurEvent = Events.Dequeue();
-
-            if (CurEvent.IsCompleted == false) return;
-
-            CurEvent = null;
+            if (_async.ContainsKey(id))
+            {
+                _async[id].SetResult(o);
+                return;
+            }
         }
-        internal static void Dispose()
-        { 
-        
+        public AsyncEventHandle OnCreate(int id, float outTime = 5f)
+        {
+            AsyncEventHandle handle = new AsyncEventHandle();
+            handle.id = id;
+            handle.starTime = curTime;
+            handle.outTime = outTime;
+            if (_async.ContainsKey(id))
+            {
+                _async[id] = handle;
+            }
+            else
+            {
+                _async.Add(id, handle);
+            }
+            return handle;
+        }
+        public AsyncEventHandle<T> OnCreate<T>(int id, float outTime = 5f)
+        {
+            AsyncEventHandle<T> handle = new AsyncEventHandle<T>();
+            handle.id = id;
+            handle.starTime = curTime;
+            handle.outTime = outTime;
+            if (_async.ContainsKey(id))
+            {
+                _async[id] = handle;
+            }
+            else
+            {
+                _async.Add(id, handle);
+            }
+            return handle;
+        }
+        public void ListenerEvent(IEvent @event)
+        {
+            if (_events.ContainsKey(nameof(@event)))
+                return;
+            _events.Add(nameof(@event), @event);
+        }
+        public void Initlizition()
+        {
+            _events = new Dictionary<string, IEvent>();
+            _async = new Dictionary<int, IEventAsync>();
+        }
+
+        public void Update(float time)
+        {
+            curTime = time;
+            foreach (var item in _async)
+            {
+                if (curTime - item.Value.starTime > item.Value.outTime && item.Value.IsCompleted == false)
+                {
+                    item.Value.SetResult(null);
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            _events.Clear();
+            _async.Clear();
         }
     }
 }

@@ -1,42 +1,39 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Net;
-using NGame.RPC;
 using System.Collections.Generic;
+using NGame.NRPC;
+using NGame;
 
 namespace Demo
 {
     class Program
     {
-        public class DispatcherHandle : AbstractChannelHandle
+        public class DispatcherHandle : AbstractHandleChannel
         {
-            public override void ChannelConnectdCompleted(ISocketChannelContext context)
+            public override async void OnConnectHandle(ISocketChannelContext context)
             {
-                Ex.Log("");
-            }
-            public override void ChannelActive(ISocketChannelContext context)
-            {
-                Ex.Log($"连接成功：{context.RemoteAddress.ToString()}");
-                Memory memory = Memory.GetMemory();
-                memory.Write("我这里是客户端");
+                Ex.Log($"连接完成：{context.Local.ToString()}  {context.Adders.ToString()}");
+                IMemory memory = Memory.GetMemory();
+                memory.Write("哈哈哈哈哈");
                 context.WriteAndFlush(memory);
             }
-            public override async void ChannelReadComplete(ISocketChannelContext context, IMemory message)
+            public override void OnRecvieCompletedHandle(ISocketChannelContext context, IMemory memory)
             {
-                Ex.Log($"收到数据：{context.RemoteAddress.ToString()} {context.SSID} {message.ToString()}");
-                await Task.Delay(10);
-                Memory memory = Memory.GetMemory();
-                memory.Write("我这里是客户端");
-                context.WriteAndFlush(memory);
-                message.Recycle();
+                Ex.Log($"收到数据：{context.Adders.ToString()} offset:{memory.Offset} {memory.ToString()} ");
+            }
+            public override void OnSendCompletedHandle(ISocketChannelContext context, IMemory memory)
+            {
+                //Ex.Log($"数据发送完成：{context.Local.ToString()} {context.id} {memory.ToString()}");
             }
         }
 
         static float times = 0;
+        static List<Bootstrap> bootstraps = new List<Bootstrap>();
         static void Main(string[] args)
         {
-            OpenSocket(1000);
             NCore.Initlizition();
+            OpenSocket(10);
             while (true)
             {
                 NCore.FixedUpdate(times);
@@ -45,18 +42,19 @@ namespace Demo
             }
         }
 
-        static async void OpenSocket(int count)
+        static void OpenSocket(int count)
         {
-            for (int i = 0; i < count; i++)
+            async void Connectd()
             {
                 Bootstrap bootstrap = new Bootstrap();
-                bootstrap.SetTimeOut(10000);
-                bootstrap.SetChannelHandle<DispatcherHandle>();
-                bootstrap.SetDecoderChannel<DefaultDecoderComparserChannel>();
-                bootstrap.SetEncoderChannel<DefaultEncoderComparserChannel>();
-                bootstrap.SetRemoteAdders(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8080));
-                bootstrap.ConnectdAsync();
-                await Task.Delay(10);
+                bootstraps.Add(bootstrap);
+                bootstrap.SetChannel(new DispatcherHandle());
+                ISocketChannelContext context = await bootstrap.DoConnectdAsync<ISocketChannelContext>(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8080));
+                await Task.Delay(1000);
+            }
+            for (int i = 0; i < count; i++)
+            {
+                Connectd();
             }
         }
     }

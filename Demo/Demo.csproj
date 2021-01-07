@@ -44,10 +44,6 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestComponent.cs" />
-    <Compile Include="TestEntity.cs" />
-    <Compile Include="TestMatche.cs" />
-    <Compile Include="TestSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -57,9 +53,9 @@
       <Project>{dfcaa0d2-817e-49f7-b54e-f5fd424c9e2a}</Project>
       <Name>NGame.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NGame.RPC\NGame.RPC.csproj">
-      <Project>{268272EF-7E2B-4521-AC3C-6923B80CCF25}</Project>
-      <Name>NGame.RPC</Name>
+    <ProjectReference Include="..\NGame.gRPC\NGame.NRPC.csproj">
+      <Project>{a72b903a-89b2-41dc-8bb9-b9269d3676f3}</Project>
+      <Name>NGame.NRPC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

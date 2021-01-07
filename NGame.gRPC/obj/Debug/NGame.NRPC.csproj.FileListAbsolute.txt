@@ -1,0 +1,9 @@
+F:\NGame\NGame.gRPC\obj\Debug\NGame.NRPC.csprojAssemblyReference.cache
+F:\NGame\NGame.gRPC\obj\Debug\NGame.NRPC.csproj.CoreCompileInputs.cache
+F:\NGame\NGame.gRPC\bin\Debug\NGame.NRPC.dll
+F:\NGame\NGame.gRPC\bin\Debug\NGame.NRPC.pdb
+F:\NGame\NGame.gRPC\bin\Debug\NGame.Core.dll
+F:\NGame\NGame.gRPC\bin\Debug\NGame.Core.pdb
+F:\NGame\NGame.gRPC\obj\Debug\NGame.NRPC.csproj.CopyComplete
+F:\NGame\NGame.gRPC\obj\Debug\NGame.NRPC.dll
+F:\NGame\NGame.gRPC\obj\Debug\NGame.NRPC.pdb

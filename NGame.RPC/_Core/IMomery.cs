@@ -14,7 +14,10 @@ namespace NGame.RPC
         byte[] Buffer { get; }
         int Offset { get; }
         int Length { get; }
-
+        T Read<T>();
+        void Read(byte[] bytes, int offset, int length, int disPosition = 0);
+        void Write(object o);
+        void Write(byte[] bytes, int offset, int length, int disPosition = 0);
         void Recycle();
     }
 }

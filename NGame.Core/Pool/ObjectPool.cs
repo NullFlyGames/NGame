@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Concurrent;
 
-namespace NGame.ObjectPool
+namespace NGame
 {
-    public sealed class ObjectPool<T> : Core.IObjectPool
+    public sealed class ObjectPool<T>
     {
         private readonly Func<T> _onCreate;
         private readonly Action<T> _OnDestroy;

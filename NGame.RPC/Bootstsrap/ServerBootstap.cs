@@ -11,8 +11,6 @@ namespace NGame.RPC
         TcpServer TcpServer;
         uint outTime;
 
-        public int id { get; set; }
-
         public override IBootstrap BindAsync()
         {
             TcpServer = new TcpServer();
@@ -118,6 +116,28 @@ namespace NGame.RPC
         {
             ChannelHandle.ExceptionCaught(null, new Exception("shutdown"));
             return HandleResult.Ok;
+        }
+
+        public override IBootstrap WriteAndFlush(IntPtr ssid, IMemory memory)
+        {
+            SocketChannelContext context = TcpServer.GetExtra<SocketChannelContext>(ssid);
+            if (context == null) return this;
+            context.WriteAndFlush(memory);
+            return this;
+        }
+        public override IBootstrap Write(IntPtr ssid, IMemory memory)
+        {
+            SocketChannelContext context = TcpServer.GetExtra<SocketChannelContext>(ssid);
+            if (context == null) return this;
+            context.Write(memory);
+            return this;
+        }
+        public override IBootstrap Flush(IntPtr ssid)
+        {
+            SocketChannelContext context = TcpServer.GetExtra<SocketChannelContext>(ssid);
+            if (context == null) return this;
+            context.Flush();
+            return this;
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NGame.RPC
 {
-    class SocketChannelContext : ISocketChannelContext
+    public class SocketChannelContext : ISocketChannelContext
     {
         public ISocket Socket { get; set; }
         public IntPtr SSID { get; set; }

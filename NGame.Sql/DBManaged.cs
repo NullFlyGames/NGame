@@ -127,7 +127,7 @@ namespace NGame.Sql
             if (handle == null) handle = LoadHandle<T>();
 
             string sql = "select * from information_schema.tables where table_name ='" + typeof(T).Name.ToLower() + "s';";
-            if (handle.Database.Connection.State != System.Data.ConnectionState.Open)
+            if (handle.Database.Connection.State != Systems.Data.ConnectionState.Open)
             {
                 handle.Database.Connection.Open();
             }
@@ -141,7 +141,7 @@ namespace NGame.Sql
             if (IsExists<T>()) return;
             DBHandle<T> handle = GetHandle<T>();
             if (handle == null) handle = LoadHandle<T>();
-            if (handle.Database.Connection.State != System.Data.ConnectionState.Open)
+            if (handle.Database.Connection.State != Systems.Data.ConnectionState.Open)
             {
                 handle.Database.Connection.Open();
             }
@@ -168,7 +168,7 @@ namespace NGame.Sql
             command.CommandText += "'" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + "_InitialCreate',";
             command.CommandText += "'NServer.DB.DBHandle`1[" + typeof(T).FullName + "]',";
             string hex = new ModelCompressor().Compress(handle.GetModel()).ToHex();
-            System.Xml.Linq.XDocument document = new ModelCompressor().Decompress(hex.HexToString());
+            Systems.Xml.Linq.XDocument document = new ModelCompressor().Decompress(hex.HexToString());
             command.CommandText += "0x" +hex + ",";
             command.CommandText += "'6.4.4');";
             result = command.ExecuteNonQuery();

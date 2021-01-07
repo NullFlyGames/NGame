@@ -8,11 +8,5 @@ F:\NGame\Dispatcher\obj\Debug\Dispatcher.csproj.CoreCompileInputs.cache
 F:\NGame\Dispatcher\obj\Debug\Dispatcher.csproj.CopyComplete
 F:\NGame\Dispatcher\obj\Debug\Dispatcher.exe
 F:\NGame\Dispatcher\obj\Debug\Dispatcher.pdb
-F:\NGame\Dispatcher\bin\Debug\NGame.RPC.dll
-F:\NGame\Dispatcher\bin\Debug\NGame.RPC.pdb
-F:\NGame\Dispatcher\bin\Debug\hpsocket_cn.txt
-F:\NGame\Dispatcher\bin\Debug\hpsocket_en.txt
-F:\NGame\Dispatcher\bin\Debug\HPSocket.Net.dll
-F:\NGame\Dispatcher\bin\Debug\HPSocket.Net.pdb
-F:\NGame\Dispatcher\bin\Debug\HPSocket.Net.xml
-F:\NGame\Dispatcher\bin\Debug\HPSocket4C.dll
+F:\NGame\Dispatcher\bin\Debug\NGame.NRPC.dll
+F:\NGame\Dispatcher\bin\Debug\NGame.NRPC.pdb
