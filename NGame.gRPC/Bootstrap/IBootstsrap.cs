@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using System.Net;
 using NGame.Event;
 
-namespace NGame.NRPC
+namespace NGame.RPC
 {
     public interface IBootstsrap
     {
         IAsyncEvent<T> DoConnectdAsync<T>(IPEndPoint adders) where T : ISocketChannelContext;
         IAsyncEvent<T> DoBindAsync<T>(IPEndPoint adders) where T : ISocketChannelContext;
-        void SetChannel(IHandleChannel channel);
+        void SetIdelStage(IdelStage stage);
     }
 }

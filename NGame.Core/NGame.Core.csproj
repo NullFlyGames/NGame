@@ -72,6 +72,8 @@
     <Compile Include="Managed\IManaged.cs" />
     <Compile Include="Memory\IMemory.cs" />
     <Compile Include="Memory\Memory.cs" />
+    <Compile Include="NetworkAdapter.cs" />
+    <Compile Include="NetworkMonitor.cs" />
     <Compile Include="Pool\ObjectPool.cs" />
     <Compile Include="NCore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

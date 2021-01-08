@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.Data", "NGame.Sql\NGa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dispatcher", "Dispatcher\Dispatcher.csproj", "{B6B9B1DD-D95F-4EFD-9C96-1F0F5DA47C23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.NRPC", "NGame.gRPC\NGame.NRPC.csproj", "{A72B903A-89B2-41DC-8BB9-B9269D3676F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.RPC", "NGame.gRPC\NGame.RPC.csproj", "{A72B903A-89B2-41DC-8BB9-B9269D3676F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

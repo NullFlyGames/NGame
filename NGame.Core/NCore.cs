@@ -15,6 +15,7 @@ public sealed partial class NCore
 {
     static List<IManaged> _manageds;
     static bool isDispose = false;
+    public static float Timer;
 
     /// <summary>
     /// 初始化
@@ -85,6 +86,7 @@ public sealed partial class NCore
     public static void FixedUpdate(float time)
     {
         if (isDispose) return;
+        Timer = time;
         for (int i = _manageds.Count - 1; i >= 0; i--)
         {
             _manageds[i].Update(time);

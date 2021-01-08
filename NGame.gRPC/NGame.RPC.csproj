@@ -7,7 +7,7 @@
     <ProjectGuid>{A72B903A-89B2-41DC-8BB9-B9269D3676F3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NGame.NRPC</RootNamespace>
+    <RootNamespace>NGame.RPC</RootNamespace>
     <AssemblyName>NGame.NRPC</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap\AbstractBootstapChannel.cs" />
+    <Compile Include="Bootstrap\IdelStage.cs" />
     <Compile Include="Handle\AbstractHandleChannel.cs" />
     <Compile Include="Bootstrap\Bootstrap.cs" />
     <Compile Include="Bootstrap\IBootstsrap.cs" />

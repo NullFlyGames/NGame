@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Net;
 using System.Collections.Generic;
-using NGame.NRPC;
+using NGame.RPC;
 using NGame;
 
 namespace Demo
@@ -11,20 +11,35 @@ namespace Demo
     {
         public class DispatcherHandle : AbstractHandleChannel
         {
-            public override async void OnConnectHandle(ISocketChannelContext context)
+            public override void OnConnectHandle(ISocketChannelContext context)
             {
                 Ex.Log($"连接完成：{context.Local.ToString()}  {context.Adders.ToString()}");
                 IMemory memory = Memory.GetMemory();
                 memory.Write("哈哈哈哈哈");
                 context.WriteAndFlush(memory);
             }
-            public override void OnRecvieCompletedHandle(ISocketChannelContext context, IMemory memory)
+            public override async void OnReadCompletedHandle(ISocketChannelContext context, IMemory memory)
             {
-                Ex.Log($"收到数据：{context.Adders.ToString()} offset:{memory.Offset} {memory.ToString()} ");
+                string info = memory.Read<string>();
+                Ex.Log($"收到数据：{context.Adders.ToString()} offset:{memory.Offset} {info}");
+                if (info.Contains("心跳检测"))
+                {
+                    return;
+                }
+                IMemory m = memory.Clone();
+                await Task.Delay(1000);
+                context.WriteAndFlush(m);
             }
-            public override void OnSendCompletedHandle(ISocketChannelContext context, IMemory memory)
+            public override void OnWriteCompletedHandle(ISocketChannelContext context, IMemory memory)
             {
-                //Ex.Log($"数据发送完成：{context.Local.ToString()} {context.id} {memory.ToString()}");
+                memory.Refresh();
+                Ex.Log($"数据发送完成：{context.Local.ToString()} {context.id} {memory.Read<string>()}");
+            }
+            public override void OnTiggerEventHandle(ISocketChannelContext context)
+            {
+                IMemory memory = Memory.GetMemory();
+                memory.Write("心跳检测");
+                context.WriteAndFlush(memory);
             }
         }
 
@@ -33,12 +48,16 @@ namespace Demo
         static void Main(string[] args)
         {
             NCore.Initlizition();
-            OpenSocket(10);
+            NetworkMonitor monitor = new NetworkMonitor();
+            monitor.StartMonitoring();
+            OpenSocket(1000);
             while (true)
             {
                 NCore.FixedUpdate(times);
+                bootstraps.ForEach(a => { a.Update(times); });
+                Console.Title = $"客户端 接收：{monitor.GetRecvieSpeed()} 发送：{monitor.GetSendSpeed()}";
                 System.Threading.Thread.Sleep(10);
-                times += 0.001f;
+                times += 0.01f;
             }
         }
 
@@ -48,9 +67,8 @@ namespace Demo
             {
                 Bootstrap bootstrap = new Bootstrap();
                 bootstraps.Add(bootstrap);
-                bootstrap.SetChannel(new DispatcherHandle());
+                bootstrap.SetIdelStage(new IdelStage(IdelState.Read, new DispatcherHandle(), 2));
                 ISocketChannelContext context = await bootstrap.DoConnectdAsync<ISocketChannelContext>(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8080));
-                await Task.Delay(1000);
             }
             for (int i = 0; i < count; i++)
             {

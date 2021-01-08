@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Net.Sockets;
 
-namespace NGame.NRPC
+namespace NGame.RPC
 {
     public class AbstractSocketAsyncEventArgs : SocketAsyncEventArgs
     {
@@ -16,17 +16,21 @@ namespace NGame.NRPC
         static ConcurrentQueue<AbstractSocketAsyncEventArgs> abstracts_recv = new ConcurrentQueue<AbstractSocketAsyncEventArgs>();
         public static AbstractSocketAsyncEventArgs GetAbstractSocketAsync(ITcpSocket tcp, IMemory recv = null)
         {
-            if (recv == null)
-            {
-                recv = Memory.GetMemory();
-                recv.Offset = recv.Length;
-            }
             if (!abstracts_send.TryDequeue(out AbstractSocketAsyncEventArgs args))
             {
                 args = new AbstractSocketAsyncEventArgs(tcp);
             }
-            args.TcpSocket = tcp;
-            args.SetMemory(recv, recv.Offset);
+            if (recv == null)
+            {
+                recv = Memory.GetMemory();
+                args.TcpSocket = tcp;
+                args.SetMemory(recv, recv.Length);
+            }
+            else
+            {
+                args.TcpSocket = tcp;
+                args.SetMemory(recv, recv.Offset);
+            }
             return args;
         }
 
@@ -68,8 +72,8 @@ namespace NGame.NRPC
 
         public void SetMemory(IMemory memory, int length = 0)
         {
-            if (_Memory != null) _Memory.Recycle();
             if (memory == null) return;
+            if (_Memory != null) _Memory.Recycle();
             _Memory = memory;
             SetBuffer(_Memory.Buffer, 0, length);
         }

@@ -7,18 +7,23 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using NGame.Event;
 
-namespace NGame.NRPC
+namespace NGame.RPC
 {
     public abstract class AbstractSocketChannel : ITcpSocket
     {
         static int index = 0;
-        public int id => ++index;
+
+        public int id { get; private set; }
 
         protected Socket _sock;
         public IPEndPoint Adders => (IPEndPoint)_sock.RemoteEndPoint;
 
         public IPEndPoint Local => (IPEndPoint)_sock.LocalEndPoint;
 
+        public AbstractSocketChannel()
+        {
+            id = ++index;
+        }
         /// <summary>
         /// 释放当前对象
         /// </summary>

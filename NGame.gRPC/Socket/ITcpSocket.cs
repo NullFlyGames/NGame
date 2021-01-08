@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NGame.NRPC
+namespace NGame.RPC
 {
     public interface ITcpSocket : ISocketChannelContext, IDisposable
     {

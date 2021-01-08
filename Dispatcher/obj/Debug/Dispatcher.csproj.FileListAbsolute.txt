@@ -1,12 +1,12 @@
-F:\NGame\Dispatcher\bin\Debug\Dispatcher.exe.config
-F:\NGame\Dispatcher\bin\Debug\Dispatcher.exe
-F:\NGame\Dispatcher\bin\Debug\Dispatcher.pdb
 F:\NGame\Dispatcher\bin\Debug\NGame.Core.dll
 F:\NGame\Dispatcher\bin\Debug\NGame.Core.pdb
 F:\NGame\Dispatcher\obj\Debug\Dispatcher.csprojAssemblyReference.cache
 F:\NGame\Dispatcher\obj\Debug\Dispatcher.csproj.CoreCompileInputs.cache
 F:\NGame\Dispatcher\obj\Debug\Dispatcher.csproj.CopyComplete
-F:\NGame\Dispatcher\obj\Debug\Dispatcher.exe
-F:\NGame\Dispatcher\obj\Debug\Dispatcher.pdb
 F:\NGame\Dispatcher\bin\Debug\NGame.NRPC.dll
 F:\NGame\Dispatcher\bin\Debug\NGame.NRPC.pdb
+F:\NGame\Dispatcher\bin\Debug\路由分发器.exe.config
+F:\NGame\Dispatcher\bin\Debug\路由分发器.exe
+F:\NGame\Dispatcher\bin\Debug\路由分发器.pdb
+F:\NGame\Dispatcher\obj\Debug\路由分发器.exe
+F:\NGame\Dispatcher\obj\Debug\路由分发器.pdb

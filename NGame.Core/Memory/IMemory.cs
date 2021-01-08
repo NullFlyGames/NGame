@@ -13,9 +13,10 @@ namespace NGame
         int Length { get; }
         void Recycle();
         void Read(byte[] bytes, int offset, int length);
-       void Write(byte[] bytes, int offset, int length);
+        void Write(byte[] bytes, int offset, int length);
         T Read<T>();
         void Write(object o);
         IMemory Clone();
+        void Refresh();
     }
 }

@@ -7,7 +7,7 @@
     <ProjectGuid>{B6B9B1DD-D95F-4EFD-9C96-1F0F5DA47C23}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Dispatcher</RootNamespace>
-    <AssemblyName>Dispatcher</AssemblyName>
+    <AssemblyName>路由分发器</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Dispatcher.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -54,9 +57,9 @@
       <Project>{dfcaa0d2-817e-49f7-b54e-f5fd424c9e2a}</Project>
       <Name>NGame.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NGame.gRPC\NGame.NRPC.csproj">
+    <ProjectReference Include="..\NGame.gRPC\NGame.RPC.csproj">
       <Project>{a72b903a-89b2-41dc-8bb9-b9269d3676f3}</Project>
-      <Name>NGame.NRPC</Name>
+      <Name>NGame.RPC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

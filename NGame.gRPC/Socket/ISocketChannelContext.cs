@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 
-namespace NGame.NRPC
+namespace NGame.RPC
 {
     /// <summary>
     /// 网络操作上下文

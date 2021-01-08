@@ -5,41 +5,53 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using NGame.Managed;
 
-namespace NGame.NRPC
+namespace NGame.RPC
 {
-    public class Bootstrap : AbstractBootstapChannel
+    public class Bootstrap : AbstractBootstapChannel, IManaged
     {
         TcpClientChannel TcpClient;
-        IHandleChannel HandleChannel;
+        IdelStage Stage;
+
+        public void Initlizition()
+        {
+            
+        }
+
         public override IAsyncEvent<T> DoConnectdAsync<T>(IPEndPoint adders)
         {
             AsyncEventHandle<T> handle = NCore.GetManaged<EventSystem>().OnCreate<T>(GetHashCode(), 5f);
             TcpClient = new TcpClientChannel();
             TcpClient.OnClose += OnClose;
             TcpClient.OnConnectd += OnConnectd;
-            TcpClient.OnError += HandleChannel.OnErrorHandle;
-            TcpClient.OnRecvie += HandleChannel.OnRecvieCompletedHandle;
-            TcpClient.OnSend += HandleChannel.OnSendCompletedHandle;
             TcpClient.DoConnectd(adders);
             return handle;
         }
         void OnConnectd(TcpClientChannel channel)
         {
             NCore.GetManaged<EventSystem>().SetAsyncEventResult(GetHashCode(), TcpClient);
-            HandleChannel.OnConnectHandle(TcpClient);
+            Stage.OnConnect(channel);
         }
         void OnClose(TcpClientChannel channel)
         {
-            HandleChannel.OnDispose();
+            Dispose();
         }
-        public override void SetPingpong(int time)
+
+        public override void SetIdelStage(IdelStage stage)
         {
-            base.SetPingpong(time);
+            Stage = stage;
         }
-        public override void SetChannel(IHandleChannel channel)
+        public void Update(float time)
         {
-            HandleChannel = channel;
+            Stage.Update(time);
+        }
+
+        public void Dispose()
+        {
+            Stage.OnClose();
+            Stage = null;
+            TcpClient = null;
         }
     }
 }

@@ -1,30 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using NGame.Event;
+using NGame.Managed;
+using System;
 
-namespace NGame.NRPC
+namespace NGame.RPC
 {
-    public class ServerBootstrap : AbstractBootstapChannel
+    public class ServerBootstrap : AbstractBootstapChannel, IManaged
     {
-        IHandleChannel Handle;
         TcpServerChannel TcpServer;
+        IdelStage Stage;
 
-        public override IAsyncEvent<T> DoBindAsync<T>(IPEndPoint adders)
+        public void Initlizition()
         {
 
+        }
+        public override IAsyncEvent<T> DoBindAsync<T>(IPEndPoint adders)
+        {
             TcpServer = new TcpServerChannel();
-            TcpServer.OnAccept += Handle.OnConnectHandle;
+            TcpServer.OnAccept += Stage.OnConnect;
             TcpServer.OnBind += OnBind;
-            TcpServer.OnClose += Handle.OnDispose ;
-            TcpServer.OnDisconnect += Handle.OnDisconnectdHandle;
-            TcpServer.OnError += Handle.OnErrorHandle;
-            TcpServer.OnRecvie += Handle.OnRecvieCompletedHandle;
-            TcpServer.OnSend += Handle.OnSendCompletedHandle;
+            TcpServer.OnClose += Dispose;
+            TcpServer.OnError += Stage.OnError;
             AsyncEventHandle<T> handle = NCore.GetManaged<EventSystem>().OnCreate<T>(GetHashCode(), 5f);
             TcpServer.DoBind(adders);
             return handle;
@@ -33,10 +30,19 @@ namespace NGame.NRPC
         {
             NCore.GetManaged<EventSystem>().SetAsyncEventResult(GetHashCode(), TcpServer);
         }
-        public override void SetChannel(IHandleChannel channel)
+        public override void SetIdelStage(IdelStage stage)
         {
-            Handle = channel;
+            Stage = stage;
         }
 
+        public void Update(float time)
+        {
+            Stage.Update(time);
+        }
+
+        public void Dispose()
+        {
+            Stage.OnClose();
+        }
     }
 }

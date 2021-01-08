@@ -6,7 +6,7 @@ using System.Text;
 using System.Net.Sockets;
 using System.Threading;
 
-namespace NGame.NRPC
+namespace NGame.RPC
 {
     class TcpClientChannel : AbstractSocketChannel
     {
@@ -16,7 +16,6 @@ namespace NGame.NRPC
         Action<TcpClientChannel, IMemory> _OnRecvie;
         Action<TcpClientChannel> _OnClose;
         Action<TcpClientChannel, Exception> _OnError;
-        bool isStarSend = false;
         ConcurrentQueue<IMemory> _messages = new ConcurrentQueue<IMemory>();
 
         /// <summary>
@@ -97,9 +96,12 @@ namespace NGame.NRPC
                 _OnError?.Invoke(this, new SocketException((int)args.SocketError));
                 return;
             }
-            _OnConnectd?.Invoke(this);
+            ThreadPool.QueueUserWorkItem((object o) => 
+            {
+                _OnConnectd?.Invoke(this);
+                args.Dispose();
+            });
             ThreadPool.QueueUserWorkItem(DoRecvie);
-            args.Dispose();
         }
         public override void DoRecvie(object o)
         {
@@ -124,24 +126,26 @@ namespace NGame.NRPC
                 Dispose();
                 return;
             }
+            ThreadPool.QueueUserWorkItem(DisparcherMessage, args);
+            ThreadPool.QueueUserWorkItem(DoRecvie);
+        }
+
+        void DisparcherMessage(object o)
+        {
+            var args = (AbstractSocketAsyncEventArgs)o;
             if (args.BytesTransferred > 0)
             {
-                args._Memory.Offset = args.BytesTransferred;
                 _OnRecvie?.Invoke(this, args._Memory);
             }
             AbstractSocketAsyncEventArgs.Push(args);
-            ThreadPool.QueueUserWorkItem(DoRecvie);
         }
 
         public override void DoSend(object o)
         {
             try
             {
-                if (isStarSend || _messages.Count <= 0)
-                {
-                    return;
-                }
-                isStarSend = true;
+                if (_messages.Count <= 0) return;
+         
                 while (_messages.TryDequeue(out IMemory memory))
                 {
                     if (memory == null) continue;
@@ -156,7 +160,7 @@ namespace NGame.NRPC
             }
             catch (Exception ex)
             {
-                if (_OnError != null) _OnError(this, new SocketException());
+                _OnError?.Invoke(this, new SocketException());
             }
         }
         public override void OnSendCompleted(AbstractSocketAsyncEventArgs args)
@@ -166,9 +170,11 @@ namespace NGame.NRPC
                 Dispose();
                 return;
             }
-            isStarSend = false;
-            _OnSend?.Invoke(this, args._Memory);
-            AbstractSocketAsyncEventArgs.Push(args);
+            ThreadPool.QueueUserWorkItem((object o) => 
+            {
+                _OnSend?.Invoke(this, args._Memory);
+                AbstractSocketAsyncEventArgs.Push(args);
+            });
         }
         public override void Dispose()
         {

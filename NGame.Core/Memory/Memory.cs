@@ -4,15 +4,12 @@ using System.Text;
 
 namespace NGame
 {
-    public sealed class Memory : IMemory, IDisposable
+    public sealed class Memory : IMemory
     {
         static ObjectPool<Memory> MemoryPool;
-        private bool disposedValue;
-
         public byte[] Buffer { get; private set; }
         public int Offset { get; set; }
         public int Length { get; private set; }
-
         static Memory OnCreate()
         {
             Memory memory = new Memory();
@@ -29,7 +26,7 @@ namespace NGame
         }
         static void OnRelease(Memory memory)
         {
-            memory.Offset = 0;
+            memory.Refresh();
         }
         public static Memory GetMemory()
         {
@@ -37,7 +34,9 @@ namespace NGame
             {
                 MemoryPool = new ObjectPool<Memory>(OnCreate, OnDestory, OnRelease);
             }
-            return MemoryPool.Pop();
+            Memory memory = MemoryPool.Pop();
+            memory.Refresh();
+            return memory;
         }
         public void Read(byte[] bytes, int offset, int length)
         {
@@ -176,8 +175,12 @@ namespace NGame
         }
         public void Recycle()
         {
-            Offset = 0;
+            Refresh();
             MemoryPool.Push(this);
+        }
+        public void Refresh()
+        {
+            Offset = 0;
         }
         public IMemory Clone()
         {
@@ -188,29 +191,6 @@ namespace NGame
         public override string ToString()
         {
             return Encoding.UTF8.GetString(Buffer, 0, Offset);
-        }
-        private void Dispose(bool disposing)
-        {
-            if (!disposedValue)
-            {
-                if (disposing)
-                {
-                    // TODO: 释放托管状态(托管对象)
-                }
-                Recycle();
-                disposedValue = true;
-            }
-        }
-        ~Memory()
-        {
-            // 不要更改此代码。请将清理代码放入“Dispose(bool disposing)”方法中
-            Dispose(disposing: false);
-        }
-        public void Dispose()
-        {
-            // 不要更改此代码。请将清理代码放入“Dispose(bool disposing)”方法中
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
         }
     }
 }

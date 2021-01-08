@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-namespace NGame.NRPC
+namespace NGame.RPC
 {
     class TcpServerChannel : AbstractSocketChannel
     {
@@ -13,11 +13,11 @@ namespace NGame.NRPC
         Action _OnClose;
         Action<ITcpSocket> _OnAccept;
         Action<ITcpSocket, Exception> _OnError;
-        Action<ITcpSocket, IMemory> _OnRecvie;
-        Action<ITcpSocket, IMemory> _OnSend;
-        Action<ITcpSocket> _OnDisconnect;
+        //Action<ITcpSocket, IMemory> _OnRecvie;
+        //Action<ITcpSocket, IMemory> _OnSend;
+        //Action<ITcpSocket> _OnDisconnect;
 
-        Dictionary<int, ISocketChannelContext> contexts = new Dictionary<int, ISocketChannelContext>();
+
 
         public event Action<ITcpSocket> OnAccept
         {
@@ -41,21 +41,21 @@ namespace NGame.NRPC
             add { _OnError += value; }
             remove { _OnError -= value; }
         }
-        public event Action<ITcpSocket, IMemory> OnRecvie
-        {
-            add { _OnRecvie += value; }
-            remove { _OnRecvie -= value; }
-        }
-        public event Action<ITcpSocket, IMemory> OnSend
-        {
-            add { _OnSend += value; }
-            remove { _OnSend -= value; }
-        }
-        public event Action<ITcpSocket> OnDisconnect
-        {
-            add { _OnDisconnect += value; }
-            remove { _OnDisconnect -= value; }
-        }
+        //public event Action<ITcpSocket, IMemory> OnRecvie
+        //{
+        //    add { _OnRecvie += value; }
+        //    remove { _OnRecvie -= value; }
+        //}
+        //public event Action<ITcpSocket, IMemory> OnSend
+        //{
+        //    add { _OnSend += value; }
+        //    remove { _OnSend -= value; }
+        //}
+        //public event Action<ITcpSocket> OnDisconnect
+        //{
+        //    add { _OnDisconnect += value; }
+        //    remove { _OnDisconnect -= value; }
+        //}
         /// <summary>
         /// 绑定本地地址并监听网络连接
         /// </summary>
@@ -69,11 +69,11 @@ namespace NGame.NRPC
                 _sock.Listen(Environment.ProcessorCount * 2);
                 AbstractSocketAsyncEventArgs args = new AbstractSocketAsyncEventArgs(this);
                 ThreadPool.QueueUserWorkItem(DoAccept, args);
-                if (_OnBind != null) _OnBind();
+                _OnBind?.Invoke();
             }
             catch (Exception ex)
             {
-                if (_OnError != null) _OnError(this, ex);
+                _OnError?.Invoke(this, ex);
             }
         }
         public override void DoAccept(object o)
@@ -90,56 +90,55 @@ namespace NGame.NRPC
             catch (Exception ex)
             {
                 Ex.Log(ex.Message);
-                if (_OnError != null) _OnError(this, ex);
+                _OnError?.Invoke(this, ex);
             }
         }
         public override void OnAcceptCompleted(AbstractSocketAsyncEventArgs args)
         {
             if (args.SocketError != SocketError.Success)
             {
-                if (_OnError != null) _OnError(this, new SocketException((int)args.SocketError));
+                _OnError?.Invoke(this, new SocketException((int)args.SocketError));
                 return;
             }
             TcpClientChannel channel = new TcpClientChannel(args.AcceptSocket);
-            channel.OnClose += ChannelClose;
-            channel.OnRecvie += ChannelRecvieCompleted;
-            channel.OnSend += ChannelSendCompleted;
-            channel.OnError += ChannelError;
-            contexts.Add(channel.id, channel);
+            //channel.OnClose += ChannelClose;
+            //channel.OnRecvie += ChannelRecvieCompleted;
+            //channel.OnSend += ChannelSendCompleted;
+            //channel.OnError += ChannelError;
             ThreadPool.QueueUserWorkItem(channel.DoRecvie);
-            ThreadPool.QueueUserWorkItem((object o) => { ChannelConnectd(channel); });
+            ThreadPool.QueueUserWorkItem(ChannelConnectd, channel);
             ThreadPool.QueueUserWorkItem(DoAccept, args);
         }
-        void ChannelClose(TcpClientChannel channel)
-        {
-            if (_OnDisconnect == null)
-                return;
-            _OnDisconnect(channel);
-        }
-        void ChannelConnectd(TcpClientChannel channel)
+        //void ChannelClose(TcpClientChannel channel)
+        //{
+        //    if (_OnDisconnect == null)
+        //        return;
+        //    _OnDisconnect(channel);
+        //}
+        void ChannelConnectd(object o)
         {
             if (_OnAccept == null)
                 return;
-            _OnAccept(channel);
+            _OnAccept((TcpClientChannel)o);
         }
-        void ChannelSendCompleted(TcpClientChannel channel, IMemory memory)
-        {
-            if (_OnSend == null)
-                return;
-            _OnSend(channel, memory);
-        }
-        void ChannelRecvieCompleted(TcpClientChannel channel, IMemory memory)
-        {
-            if (_OnRecvie == null)
-                return;
-            _OnRecvie(channel, memory);
-        }
-        void ChannelError(TcpClientChannel channel, Exception exception)
-        {
-            if (_OnError == null)
-                return;
-            _OnError(channel, exception);
-        }
+        //void ChannelSendCompleted(TcpClientChannel channel, IMemory memory)
+        //{
+        //    if (_OnSend == null)
+        //        return;
+        //    _OnSend(channel, memory);
+        //}
+        //void ChannelRecvieCompleted(TcpClientChannel channel, IMemory memory)
+        //{
+        //    if (_OnRecvie == null)
+        //        return;
+        //    _OnRecvie(channel, memory);
+        //}
+        //void ChannelError(TcpClientChannel channel, Exception exception)
+        //{
+        //    if (_OnError == null)
+        //        return;
+        //    _OnError(channel, exception);
+        //}
         public override void Dispose()
         {
             if (_OnClose != null) _OnClose();
