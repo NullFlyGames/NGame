@@ -2,9 +2,9 @@
 using System.Net;
 using System.Threading.Tasks;
 using NGame;
-using NGame.RPC;
+using NGame.Net;
 
-namespace Dispatcher
+namespace NGame.Dispatcher
 {
 
     public class DispatcherHandle : AbstractHandleChannel

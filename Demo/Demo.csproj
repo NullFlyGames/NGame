@@ -53,10 +53,6 @@
       <Project>{dfcaa0d2-817e-49f7-b54e-f5fd424c9e2a}</Project>
       <Name>NGame.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NGame.gRPC\NGame.RPC.csproj">
-      <Project>{a72b903a-89b2-41dc-8bb9-b9269d3676f3}</Project>
-      <Name>NGame.RPC</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

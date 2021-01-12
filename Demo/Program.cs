@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Net;
 using System.Collections.Generic;
-using NGame.RPC;
+using NGame.Net;
 using NGame;
 
 namespace Demo
