@@ -72,9 +72,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NGame.Core\NGame.Core.csproj">
+    <ProjectReference Include="..\NGame\NGame.csproj">
       <Project>{dfcaa0d2-817e-49f7-b54e-f5fd424c9e2a}</Project>
-      <Name>NGame.Core</Name>
+      <Name>NGame</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

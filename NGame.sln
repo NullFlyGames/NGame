@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{26635B2C-C8CC-4BEF-9AE3-0A4DC45AC6AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.Core", "NGame.Core\NGame.Core.csproj", "{DFCAA0D2-817E-49F7-B54E-F5FD424C9E2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame", "NGame\NGame.csproj", "{DFCAA0D2-817E-49F7-B54E-F5FD424C9E2A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGame.Dispatcher", "Dispatcher\NGame.Dispatcher.csproj", "{B6B9B1DD-D95F-4EFD-9C96-1F0F5DA47C23}"
 EndProject
