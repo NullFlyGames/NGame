@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 
 namespace NGame.Web
 {
+    public enum DownloadType
+    {
+        Onece,
+        All,
+    }
     public interface IWebChannel : IDisposable
     {
-        string Url { get; set; }
-        uint Progres { get; set; }
-        string LocalPath { get; set; }
-        byte[] bytes { get; set; }
-        Action<int> Progress { get; set; }
-        Action<IWebChannel> completed { get; set; }
-
-        void OnStart();
+        void Download(DownloadType type);
+        void Lister(string url);
+        string Request(string url);
+        string Request(string url, Dictionary<string, string> header);
+        string Post(string url, string data);
+        void UpLoadFile(string url, string filePath);
     }
 }

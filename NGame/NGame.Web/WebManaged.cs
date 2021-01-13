@@ -6,16 +6,23 @@ using System.Threading.Tasks;
 
 namespace NGame.Web
 {
-    public class WebManaged
+    public class WebManaged : Managed.AbstractManaged
     {
-        public T Download<T>(string url, string local) where T :class, IWebChannel,new()
+        private List<DownloadFileWebChannel> channels = new List<DownloadFileWebChannel>();
+        public DownloadFileWebChannel Download()
         {
-            T web = new T();
-            web.Url = url;
-            web.LocalPath = local;
-            web.Progres = 0;
-            web.OnStart();
+            DownloadFileWebChannel web = new DownloadFileWebChannel();
+            channels.Add(web);
             return web;
+        }
+        public void RemoveWenChannel(DownloadFileWebChannel channel)
+        {
+            channel.Dispose();
+            channels.Remove(channel);
+        }
+        public override void Update(float time)
+        {
+            
         }
     }
 }

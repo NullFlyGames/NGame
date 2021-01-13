@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NGame.Game
 {
-    public abstract class IPlayer:
+    public abstract class IPlayer
     {
     }
 }

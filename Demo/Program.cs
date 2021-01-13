@@ -48,13 +48,19 @@ namespace Demo
         static void Main(string[] args)
         {
             NCore.Initlizition();
+            NGame.Web.DownloadFileWebChannel channel = NCore.LoadManaged<NGame.Web.WebManaged>().Download();
+            channel.AddDownloadUrl("https://nullfly.oss-cn-chengdu.aliyuncs.com/android/blackgold_mainsence_image.assetbundle", @"F:\NGame\Demo\bin\Debug\blackgold_mainsence_image.assetbundle");
+            channel.AddDownloadUrl("https://nullfly.oss-cn-chengdu.aliyuncs.com/android/110.assetbundle", @"F:\NGame\Demo\bin\Debug\110.assetbundle");
+            channel.Download(NGame.Web.DownloadType.All);
             NetworkMonitor monitor = new NetworkMonitor();
             monitor.StartMonitoring();
-            OpenSocket(1000);
+
+
+            //OpenSocket(1000);
             while (true)
             {
                 NCore.FixedUpdate(times);
-                bootstraps.ForEach(a => { a.Update(times); });
+                //bootstraps.ForEach(a => { a.Update(times); });
                 Console.Title = $"客户端 接收：{monitor.GetRecvieSpeed()} 发送：{monitor.GetSendSpeed()}";
                 System.Threading.Thread.Sleep(10);
                 times += 0.01f;

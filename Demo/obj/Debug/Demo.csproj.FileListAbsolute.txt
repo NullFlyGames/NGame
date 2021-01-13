@@ -6,7 +6,5 @@ F:\NGame\Demo\obj\Debug\Demo.csproj.CoreCompileInputs.cache
 F:\NGame\Demo\obj\Debug\Demo.csproj.CopyComplete
 F:\NGame\Demo\obj\Debug\Demo.exe
 F:\NGame\Demo\obj\Debug\Demo.pdb
-F:\NGame\Demo\bin\Debug\NGame.Core.dll
-F:\NGame\Demo\bin\Debug\NGame.Core.pdb
-F:\NGame\Demo\bin\Debug\NGame.NRPC.dll
-F:\NGame\Demo\bin\Debug\NGame.NRPC.pdb
+F:\NGame\Demo\bin\Debug\NGame.dll
+F:\NGame\Demo\bin\Debug\NGame.pdb

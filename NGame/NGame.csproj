@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NGame.Core\Helper\FileHelper.cs" />
     <Compile Include="NGame.Core\AppSettings.cs" />
     <Compile Include="NGame.Core\Component\IComponent.cs" />
     <Compile Include="NGame.Core\Config\AbstractConfigChannel.cs" />
@@ -60,7 +61,7 @@
     <Compile Include="NGame.Core\Event\IAsyncEvent`1.cs" />
     <Compile Include="NGame.Core\Event\IEvent.cs" />
     <Compile Include="NGame.Core\Event\IEventArgs.cs" />
-    <Compile Include="NGame.Core\Ex.cs" />
+    <Compile Include="NGame.Core\Helper\Ex.cs" />
     <Compile Include="NGame.Core\LitJson\IJsonWrapper.cs" />
     <Compile Include="NGame.Core\LitJson\JsonData.cs" />
     <Compile Include="NGame.Core\LitJson\JsonException.cs" />
@@ -75,9 +76,9 @@
     <Compile Include="NGame.Core\Managed\IManaged.cs" />
     <Compile Include="NGame.Core\Memory\IMemory.cs" />
     <Compile Include="NGame.Core\Memory\Memory.cs" />
-    <Compile Include="NGame.Core\NetworkAdapter.cs" />
-    <Compile Include="NGame.Core\NetworkMonitor.cs" />
-    <Compile Include="NGame.Core\Pool\ObjectPool.cs" />
+    <Compile Include="NGame.Core\Helper\NetworkAdapter.cs" />
+    <Compile Include="NGame.Core\Helper\NetworkMonitor.cs" />
+    <Compile Include="NGame.Core\Helper\ObjectPool.cs" />
     <Compile Include="NGame.Core\NCore.cs" />
     <Compile Include="NGame.Game\AbstractRoomChannel.cs" />
     <Compile Include="NGame.Game\GameManaged.cs" />
@@ -99,7 +100,6 @@
     <Compile Include="NGame.Net\Socket\TcpServerChannel.cs" />
     <Compile Include="NGame.Resource\AbstractAssetBundleChannel.cs" />
     <Compile Include="NGame.Resource\AbstractAssetChannel.cs" />
-    <Compile Include="NGame.Resource\DownloadAssetbundleChannel.cs" />
     <Compile Include="NGame.Resource\IAsset.cs" />
     <Compile Include="NGame.Resource\IAssetBundle.cs" />
     <Compile Include="NGame.Resource\ResourceManaged.cs" />
@@ -107,6 +107,9 @@
     <Compile Include="NGame.UIForm\IUIPanle.cs" />
     <Compile Include="NGame.UIForm\UIFormManaged.cs" />
     <Compile Include="NGame.UIForm\Varable.cs" />
+    <Compile Include="NGame.Web\AbstractWebRequesChannel.cs" />
+    <Compile Include="NGame.Web\DownloadFileWebChannel.cs" />
+    <Compile Include="NGame.Web\DownloadHandle.cs" />
     <Compile Include="NGame.Web\IWebChannel.cs" />
     <Compile Include="NGame.Web\WebManaged.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
