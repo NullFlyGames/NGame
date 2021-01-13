@@ -4,9 +4,8 @@ using System.Threading.Tasks;
 using NGame;
 using NGame.Net;
 
-namespace NGame.Dispatcher
+namespace NGame.Gateway
 {
-
     public class DispatcherHandle : AbstractHandleChannel
     {
         public override void OnConnectHandle(ISocketChannelContext context)

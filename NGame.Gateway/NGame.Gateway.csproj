@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B6B9B1DD-D95F-4EFD-9C96-1F0F5DA47C23}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Dispatcher</RootNamespace>
+    <RootNamespace>Gateway</RootNamespace>
     <AssemblyName>路由分发器</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
